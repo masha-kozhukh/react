@@ -1,38 +1,86 @@
-.App {
+/*.App {*/
+/*  text-align: center;*/
+/*}*/
+
+/*.App-logo {*/
+/*  height: 40vmin;*/
+/*  pointer-events: none;*/
+/*}*/
+
+/*@media (prefers-reduced-motion: no-preference) {*/
+/*  .App-logo {*/
+/*    animation: App-logo-spin infinite 20s linear;*/
+/*  }*/
+/*}*/
+
+/*.App-header {*/
+/*  background-color: #282c34;*/
+/*  min-height: 100vh;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  font-size: calc(10px + 2vmin);*/
+/*  color: white;*/
+/*}*/
+
+/*.App-link {*/
+/*  color: #61dafb;*/
+/*}*/
+
+/*@keyframes App-logo-spin {*/
+/*  from {*/
+/*    transform: rotate(0deg);*/
+/*  }*/
+/*  to {*/
+/*    transform: rotate(360deg);*/
+/*  }*/
+/*}*/
+
+.container {
+  max-width: 1250px;
+  margin: 0px auto;
+  padding: 0px 10px;
+}
+.services {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.subTitle {
+  color: #f78cb6;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 60px;
+  margin-bottom: 6px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.title {
+  color: #56597a;
+  font-weight: 500;
+  font-size: 52px;
+  line-height: 72px;
+  margin-bottom: 58px;
+  margin-top: 0px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.carsBlock {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  gap: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.card {
+  background: #fff1f9;
+  border-radius: 8px;
+  padding: 53px 23px 23px 23px;
+  transition: 0.2s all linear;
+}
+.card:hover {
+  background: #f78cb6;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-link {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  text-decoration: none;
+  color: #fff;
 }

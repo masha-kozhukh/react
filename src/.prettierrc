@@ -1,0 +1,14 @@
+{
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+    "tsimporter.doubleQuotes": false,
+    "typescript.preferences.quoteStyle": "auto",
+    "files.watcherExclude": {
+        "/.git/objects/": true,
+        "/.git/subtree-cache/": true,
+        "/node_modules/*/": true
+    }
+  }
