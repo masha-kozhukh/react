@@ -1,35 +1,29 @@
-// import { Card, Profession } from "./Card";
+import { Link } from "../types/common";
+import { Content, Block } from "./Content";
 import React from "react";
 
 export type InformationProps = {
-  subtitle: string;
   title: string;
-  text: string;
-  src:string;
-  alt:string;
-  //   professions: Profession[];
+  blocks: Block[];
+  // link:Link;
 };
 
 export const Information = React.memo((props: InformationProps) => {
-  //   const { subtitle, title, professions } = props;
-  const { subtitle, title, text } = props;
+  // const { title, blocks, link } = props;
+  const { title, blocks } = props;
 
   return (
-    <section className="">
-      <div className="">
-        <p className="subTitle">{subtitle}</p>
-        <h1 className="title">{title}</h1>
-        <p className="text">{text}</p>
-      </div>
-      <div>
-        <img src="{src}" alt="{alt}" />
-      </div>
-
-      {/* <div className="carsBlock">
-        {professions.map((item) => (
-          <Card key={item.id} profession={item} />
+    <section className="information">
+      <h2 className="title">{title}</h2>
+      <div className="Content-block">
+        {/* {blocks.map((item) => (
+          <Content key={item.id} block={item} link={link} />
+        
+        ))} */}
+        {blocks.map((item) => (
+          <Content key={item.id} block={item} />
         ))}
-      </div> */}
+      </div>
     </section>
   );
 });

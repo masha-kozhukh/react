@@ -42,21 +42,37 @@ const services: ServicesProps = {
 };
 
 const information: InformationProps = {
-  subtitle: "Design Things ",
+  blocks: [
+    {
+      subtitle:"Design Things ",
+      title: "We Loves To Design Your Creative Ideas",
+      text: "A creative concept is an overarching “Big Idea” that captures audience interest, influences their emotional response and inspires them to take action.It is a unifying theme that can be used across all campaign messages ",
+      id: 0,
+      icon: <ThreeCubes />,
+    },
+    {
+      subtitle:"Our Teamwork ",
+      title: "We Believe Success Lies On Teamwork",
+      text: "Good teamwork means a synergistic way of working with each person committed and working towards a shared goal. ... It is therefore a necessity that leaders facilitate and build the teamwork skills of their people if they are",
+      id: 1,
+      icon: <Cubes />,
+    },
+    
+  ],
   title: "We Loves To Design Your Creative Ideas",
-  text: "A creative concept is an overarching “Big Idea” that captures audience interest, influences their emotional response and inspires them to take action.It is a unifying theme that can be used across all campaign messages ",
-  src: "https://i.imgur.com/QIrZWGIs.jpg",
-  alt: "Alan L. Hart",
+
+  // src: "https://i.imgur.com/QIrZWGIs.jpg",
+  // alt: "Alan L. Hart",
 };
 
 function App() {
   return (
     <div className="container">
-      {/*<Services */}
-      {/*    professions={services.professions}*/}
+      {/* <Services */}
+      {/* professions={services.professions}*/}
       {/*    subtitle={services.subtitle}*/}
       {/*    title={services.title}*/}
-      {/*/>*/}
+      {/*/> */}
 
       <Services {...services} />
       <Information {...information} />

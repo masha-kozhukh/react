@@ -44,6 +44,7 @@
 }
 .services {
   text-align: center;
+  margin-bottom: 100px;
 }
 .subTitle {
   color: #f78cb6;
@@ -83,4 +84,37 @@
   line-height: 30px;
   text-decoration: none;
   color: #fff;
+}
+
+.Information {
+  margin-top: 100px;
+}
+.information .title {
+  text-align: center;
+}
+
+.block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 70px;
+  grid-row-gap: 20px;
+}
+.block:first-child{
+  margin-bottom: 50px;
+}
+.block .subtitle {
+  color: #f78cb6;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 40px;
+  margin-top: 0px;
+  text-align: left;
+}
+
+.block .block-title {
+  color: #56597a;
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 70px;
+  margin-bottom: 10px;
 }

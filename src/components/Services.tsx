@@ -2,7 +2,6 @@ import { Link } from "../types/common";
 import { Card, Profession } from "./Card";
 import React from "react";
 
-
 export type ServicesProps = {
   subtitle: string;
   title: string;
