@@ -11,13 +11,13 @@ export type Block = {
 
 type Props = {
   block: Omit<Block, "id">;
-  // link: Link;
+  link: Link;
 };
 
 export const Content = React.memo((props: Props) => {
   const {
     block: { icon, subtitle, title, text },
-    // link: { name: linkName, href },
+    link: { name: linkName, href },
   } = props;
 
   return (
@@ -29,9 +29,9 @@ export const Content = React.memo((props: Props) => {
         <p className="text">{text}</p>
       </div>
 
-      {/* <a className="card-link" href={href}>
+      <a className="card-link" href={href}>
         {linkName}
-      </a> */}
+      </a>
     </div>
   );
 });

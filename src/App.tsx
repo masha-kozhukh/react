@@ -6,6 +6,7 @@ import { Cubes } from "./icons/Cubes";
 import { Briefcase } from "./icons/Briefcase";
 import { ThreeLayer } from "./icons/ThreeLayer";
 import { Button } from "./components/Button";
+import React from "react";
 
 const services: ServicesProps = {
   professions: [
@@ -60,12 +61,29 @@ const information: InformationProps = {
     },
   ],
   title: "We Loves To Design Your Creative Ideas",
-
+  link: {
+    href: "#",
+    name: "hhh",
+  },
   // src: "https://i.imgur.com/QIrZWGIs.jpg",
   // alt: "Alan L. Hart",
 };
+const hooks = {
+  useButtonHandler() {
+    const [show, setShow] = React.useState<boolean>(true);
 
+    const onShowClick = React.useCallback(() => {
+      setShow((previousState: boolean) => !previousState);
+    }, []);
+
+    return {
+      show,
+      onShowClick,
+    };
+  },
+};
 function App() {
+  const { onShowClick, show } = hooks.useButtonHandler();
   return (
     <div className="container">
       {/* <Services */}
@@ -75,8 +93,8 @@ function App() {
       {/*/> */}
 
       <Services {...services} />
-      <Button></Button>
-      <Information {...information} />
+      <Button onClick={onShowClick} name="click" />
+      {show && <Information {...information} />}
     </div>
   );
 }

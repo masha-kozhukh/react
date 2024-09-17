@@ -1,22 +1,12 @@
-import { log } from "console";
-import React, { useState } from "react";
+import React from "react";
 
-export type ButtonsProps = {};
+export type ButtonsProps = {
+  onClick: () => void;
+  name: string;
+};
 
 export const Button = React.memo((props: ButtonsProps) => {
-  const {} = props;
-  const [show, setShow] = useState(false);
-  const onShowClick = () => {
-    console.log("hhhh");
-    // if (show) {
-    //   setShow(true);
-    // } else setShow(false);
-    show ? setShow(true) : setShow(false);
-  };
-  return (
-    <div>
-      <button onClick={onShowClick}>Click Me</button>
-      {show && <h1>dddddd</h1>}
-    </div>
-  );
+  const { onClick, name } = props;
+
+  return <button onClick={onClick}>{name}</button>;
 });
