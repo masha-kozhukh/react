@@ -98,10 +98,25 @@
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 70px;
   grid-row-gap: 20px;
+  grid-auto-flow: dense;
 }
-.block:first-child{
+.block:first-child {
   margin-bottom: 50px;
 }
+.block:first-child div:nth-child(1) {
+  grid-column: 1 / 2;
+}
+.block:first-child div:nth-child(2) {
+  grid-column: 2 / 3;
+}
+.block div:nth-child(2) {
+  grid-column: 1 / 2;
+}
+.block div:nth-child(1) {
+  grid-column: 2 / 3;
+}
+
+
 .block .subtitle {
   color: #f78cb6;
   font-size: 28px;
