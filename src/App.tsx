@@ -17,6 +17,16 @@ const accordions: AccordionsProps = {
       text: "a plan or drawing produced to show the look and function",
       id: 0,
     },
+    {
+      name: "Design",
+      text: "a plan or drawing produced to show the look and function",
+      id: 1,
+    },
+    {
+      name: "Design",
+      text: "a plan or drawing produced to show the look and function",
+      id: 2,
+    },
   ],
   subtitle: "Our accordions",
   title: "Why People Choose Accordions",
@@ -81,21 +91,23 @@ const information: InformationProps = {
   },
 };
 const hooks = {
-  useButtonHandler() {
-    const [show, setShow] = React.useState<boolean>(true);
+  useShowInformationButtonHandler() {
+    const [showInformation, setShowInformation] = React.useState<boolean>(true);
 
-    const onShowClick = React.useCallback(() => {
-      setShow((previousState: boolean) => !previousState);
+    const onShowInformationClick = React.useCallback(() => {
+      setShowInformation((previousState: boolean) => !previousState);
     }, []);
 
     return {
-      show,
-      onShowClick,
+      showInformation,
+      onShowInformationClick,
     };
   },
 };
 function App() {
-  const { onShowClick, show } = hooks.useButtonHandler();
+  const { onShowInformationClick, showInformation } =
+    hooks.useShowInformationButtonHandler();
+
   return (
     <div className="container">
       {/* <Services */}
@@ -105,8 +117,8 @@ function App() {
       {/*/> */}
       <Accordion {...accordions} />
       <Services {...services} />
-      <Button onClick={onShowClick} name="hide" />
-      {show && <Information {...information} />}
+      <Button onClick={onShowInformationClick} name="hide" />
+      {showInformation && <Information {...information} />}
     </div>
   );
 }

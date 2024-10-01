@@ -8,19 +8,27 @@ export type Content = {
 };
 
 type Props = {
-  content: Omit<Content, "id">;
+  activeIndex: number;
+  setActiveIndex: () => void;
+  content: Content;
 };
 
 export const Panel = React.memo((props: Props) => {
   const {
-    content: { name, text },
+    activeIndex,
+    setActiveIndex,
+    content: { name, text, id },
   } = props;
 
   return (
     <div className="panel">
       <h3>{name}</h3>
-      <p>{text}</p>
-      {/* <Button onClick={onShowPanel} name="show" /> */}
+      {activeIndex !== id && (
+        <>
+          <p>{text}</p>
+          <Button onClick={setActiveIndex} name="show" />
+        </>
+      )}
     </div>
   );
 });
