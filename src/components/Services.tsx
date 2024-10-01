@@ -16,7 +16,7 @@ export const Services = React.memo((props: ServicesProps) => {
     <section className="services">
       <p className="subTitle">{subtitle}</p>
       <h1 className="title">{title}</h1>
-      <div className="carsBlock ddd">
+      <div className="carsBlock">
         {professions.map((item) => (
           <Card key={item.id} profession={item} link={link} />
         ))}
