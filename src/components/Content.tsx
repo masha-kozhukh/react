@@ -27,11 +27,10 @@ export const Content = React.memo((props: Props) => {
         <h3 className="subtitle">{subtitle}</h3>
         <h2 className="block-title">{title}</h2>
         <p className="text">{text}</p>
+        <a className="link" href={href}>
+          {linkName}
+        </a>
       </div>
-
-      <a className="card-link" href={href}>
-        {linkName}
-      </a>
     </div>
   );
 });

@@ -7,6 +7,20 @@ import { Briefcase } from "./icons/Briefcase";
 import { ThreeLayer } from "./icons/ThreeLayer";
 import { Button } from "./components/Button";
 import React from "react";
+import { Artist } from "./icons/Artist";
+import { Accordion, AccordionsProps } from "./components/Accordion";
+
+const accordions: AccordionsProps = {
+  contents: [
+    {
+      name: "Design",
+      text: "a plan or drawing produced to show the look and function",
+      id: 0,
+    },
+  ],
+  subtitle: "Our accordions",
+  title: "Why People Choose Accordions",
+};
 
 const services: ServicesProps = {
   professions: [
@@ -50,23 +64,21 @@ const information: InformationProps = {
       title: "We Loves To Design Your Creative Ideas",
       text: "A creative concept is an overarching “Big Idea” that captures audience interest, influences their emotional response and inspires them to take action.It is a unifying theme that can be used across all campaign messages ",
       id: 0,
-      icon: <ThreeCubes />,
+      icon: <Artist />,
     },
     {
       subtitle: "Our Teamwork ",
       title: "We Believe Success Lies On Teamwork",
       text: "Good teamwork means a synergistic way of working with each person committed and working towards a shared goal. ... It is therefore a necessity that leaders facilitate and build the teamwork skills of their people if they are",
       id: 1,
-      icon: <Cubes />,
+      icon: <Artist />,
     },
   ],
   title: "We Loves To Design Your Creative Ideas",
   link: {
     href: "#",
-    name: "hhh",
+    name: "Learn more",
   },
-  // src: "https://i.imgur.com/QIrZWGIs.jpg",
-  // alt: "Alan L. Hart",
 };
 const hooks = {
   useButtonHandler() {
@@ -91,9 +103,9 @@ function App() {
       {/*    subtitle={services.subtitle}*/}
       {/*    title={services.title}*/}
       {/*/> */}
-
+      <Accordion {...accordions} />
       <Services {...services} />
-      <Button onClick={onShowClick} name="click" />
+      <Button onClick={onShowClick} name="hide" />
       {show && <Information {...information} />}
     </div>
   );
