@@ -9,6 +9,18 @@ import { Button } from "./components/Button";
 import React from "react";
 import { Artist } from "./icons/Artist";
 import { Accordion, AccordionsProps } from "./components/Accordion";
+import { ToDoList, ListsProps } from "./components/ToDoList";
+
+const lists: ListsProps = {
+  subtitle: "Our list",
+  title: "To Do List",
+  type:"text",
+  placeholder:"Введіть текст",
+  id: 0,
+  text: "",
+
+  
+};
 
 const accordions: AccordionsProps = {
   contents: [
@@ -115,6 +127,7 @@ function App() {
       {/*    subtitle={services.subtitle}*/}
       {/*    title={services.title}*/}
       {/*/> */}
+      <ToDoList {...lists} />
       <Accordion {...accordions} />
       <Services {...services} />
       <Button onClick={onShowInformationClick} name="hide" />
