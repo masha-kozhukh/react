@@ -12,14 +12,14 @@ import { Accordion, AccordionsProps } from "./components/Accordion";
 import { ToDoList, ListsProps } from "./components/ToDoList";
 
 const lists: ListsProps = {
+  initialItems:[
+    { id: 1, text: "item1" },
+    { id: 2, text: "item2" },
+    { id: 3, text: "item3" },
+  ],
   subtitle: "Our list",
   title: "To Do List",
-  type:"text",
-  placeholder:"Введіть текст",
-  id: 0,
-  text: "",
-
-  
+  type: "text",
 };
 
 const accordions: AccordionsProps = {
@@ -115,6 +115,7 @@ const hooks = {
       onShowInformationClick,
     };
   },
+  
 };
 function App() {
   const { onShowInformationClick, showInformation } =

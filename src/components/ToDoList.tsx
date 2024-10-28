@@ -1,19 +1,22 @@
 import React from "react";
+import { ToDoItem } from "./ToDoItem";
 import { Button } from "./Button";
+import { Input } from "./Input";
 
 export type ListsProps = {
+  initialItems: { id: number; text: string }[];
   subtitle: string;
   title: string;
   type: string;
-  placeholder: string;
-  id: number;
-  text: string;
 };
 
 export const ToDoList = React.memo((props: ListsProps) => {
-  const { subtitle, title, type, placeholder, id } = props;
+  const { subtitle, title, type, initialItems } = props;
   const [text, setText] = React.useState<string>("");
-  const [items, setItems] = React.useState<{ id: number; text: string }[]>([]);
+  const [items, setItems] =
+    React.useState<{ id: number; text: string }[]>(initialItems);
+  const [editId, setEditId] = React.useState<number | null>(null);
+  const [editText, setEditText] = React.useState<string>("");
 
   const addItem = () => {
     if (text.trim()) {
@@ -22,7 +25,9 @@ export const ToDoList = React.memo((props: ListsProps) => {
       setText("");
     }
   };
-
+  const updateItem = (item: { id: number; text: string }) => {
+    setItems(items.map((t) => (t.id === item.id ? item : t)));
+  };
   const deleteItem = (id: number) => {
     setItems(items.filter((item) => item.id !== id));
   };
@@ -32,20 +37,25 @@ export const ToDoList = React.memo((props: ListsProps) => {
       <p className="subTitle">{subtitle}</p>
       <h1 className="title">{title}</h1>
       <div>
-        <input
+        <Input
+          onChange={(e) => setText(e.target.value)}
           type={type}
           value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder={placeholder}
+          placeholder="Введіть текст"
         />
-
         <Button onClick={addItem} name="add list" />
         <ul>
           {items.map((item) => (
-            <li key={item.id}>
-              {item.text}
-              <Button onClick={() => deleteItem(item.id)} name="remove item" />
-            </li>
+            <ToDoItem
+              key={item.id}
+              item={item}
+              editId={editId}
+              editText={editText}
+              setEditId={setEditId}
+              setEditText={setEditText}
+              updateItem={updateItem}
+              deleteItem={deleteItem}
+            />
           ))}
         </ul>
       </div>
