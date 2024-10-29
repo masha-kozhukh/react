@@ -9,6 +9,19 @@ import { Button } from "./components/Button";
 import React from "react";
 import { Artist } from "./icons/Artist";
 import { Accordion, AccordionsProps } from "./components/Accordion";
+import { ToDoList, ListsProps } from "./components/ToDoList";
+
+const lists: ListsProps = {
+  initialItems:[
+    { id: 1, text: "item1" },
+    { id: 2, text: "item2" },
+    { id: 3, text: "item3" },
+  ],
+  subtitle: "Our list",
+  title: "To Do List",
+  type: "text",
+  placeholder:"placeholder"
+};
 
 const accordions: AccordionsProps = {
   contents: [
@@ -103,6 +116,7 @@ const hooks = {
       onShowInformationClick,
     };
   },
+  
 };
 function App() {
   const { onShowInformationClick, showInformation } =
@@ -115,6 +129,7 @@ function App() {
       {/*    subtitle={services.subtitle}*/}
       {/*    title={services.title}*/}
       {/*/> */}
+      <ToDoList {...lists} />
       <Accordion {...accordions} />
       <Services {...services} />
       <Button onClick={onShowInformationClick} name="hide" />
