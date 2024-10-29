@@ -8,7 +8,7 @@ export type InputsProps = {
 };
 
 export const Input = React.memo((props: InputsProps) => {
-  const { onChange, type, value, placeholder } = props;
+  const { onChange, type, value, placeholder = "" } = props;
   return (
     <input
       onChange={onChange}

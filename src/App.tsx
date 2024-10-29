@@ -20,6 +20,7 @@ const lists: ListsProps = {
   subtitle: "Our list",
   title: "To Do List",
   type: "text",
+  placeholder:"placeholder"
 };
 
 const accordions: AccordionsProps = {

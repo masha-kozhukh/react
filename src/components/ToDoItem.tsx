@@ -1,32 +1,35 @@
 import React from "react";
 import { Button } from "./Button";
 import { Input } from "./Input";
+import { TextWithId } from "../types/common";
 
-type ToDoItemProps = {
-  item: { id: number; text: string };
-  editId: number | null;
-  editText: string;
-  setEditId: (id: number | null) => void;
-  setEditText: (text: string) => void;
-  updateItem: (item: { id: number; text: string }) => void;
+type ToDoItem = {
+  item: TextWithId;
+  updateItem: () => void;
   deleteItem: (id: number) => void;
+  setNewTextWithId: (item: TextWithId | null) => void;
+  newTextWithId: TextWithId | null;
 };
 
-export const ToDoItem: React.FC<ToDoItemProps> = ({
+export const ToDoItem: React.FC<ToDoItem> = ({
   item,
-  editId,
-  editText,
-  setEditId,
-  setEditText,
   updateItem,
   deleteItem,
+  setNewTextWithId,
+  newTextWithId,
 }) => {
+  const isEdit = newTextWithId?.id === item.id;
   return (
     <li>
-      {editId === item.id ? (
+      {isEdit ? (
         <Input
-          onChange={(e) => setEditText(e.target.value)}
-          value={editText}
+          onChange={(e) =>
+            setNewTextWithId({
+              id: newTextWithId.id,
+              text: e.target.value,
+            })
+          }
+          value={newTextWithId.text}
           type="text"
         />
       ) : (
@@ -35,15 +38,13 @@ export const ToDoItem: React.FC<ToDoItemProps> = ({
       <Button onClick={() => deleteItem(item.id)} name="remove item" />
       <Button
         onClick={() => {
-          if (editId === item.id) {
-            updateItem({ id: item.id, text: editText });
-            setEditId(null);
+          if (isEdit) {
+            updateItem();
           } else {
-            setEditId(item.id);
-            setEditText(item.text);
+            setNewTextWithId(item);
           }
         }}
-        name={editId === item.id ? "Save" : "Edit"}
+        name={isEdit ? "Save" : "Edit"}
       />
     </li>
   );
