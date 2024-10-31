@@ -19,33 +19,41 @@ export const ToDoItem: React.FC<ToDoItem> = ({
   newTextWithId,
 }) => {
   const isEdit = newTextWithId?.id === item.id;
+  
+  const onInputChangeNewTextWithId = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) =>
+      setNewTextWithId({
+        id: newTextWithId?.id ?? 0,
+        text: e.target.value,
+      }),
+    [newTextWithId]
+  );
+
+  const onClickRemove = React.useCallback(() => {
+    deleteItem(item.id);
+  }, [item.id]); //bug, something goes wrong when deleting items
+
+  const onClickUndate = React.useCallback(() => {
+    if (isEdit) {
+      updateItem();
+    } else {
+      setNewTextWithId(item);
+    }
+  }, [isEdit, updateItem, setNewTextWithId, item]);
+
   return (
     <li>
       {isEdit ? (
         <Input
-          onChange={(e) =>
-            setNewTextWithId({
-              id: newTextWithId.id,
-              text: e.target.value,
-            })
-          }
+          onChange={onInputChangeNewTextWithId}
           value={newTextWithId.text}
           type="text"
         />
       ) : (
         item.text
       )}
-      <Button onClick={() => deleteItem(item.id)} name="remove item" />
-      <Button
-        onClick={() => {
-          if (isEdit) {
-            updateItem();
-          } else {
-            setNewTextWithId(item);
-          }
-        }}
-        name={isEdit ? "Save" : "Edit"}
-      />
+      <Button disabled={isEdit} onClick={onClickRemove} name="remove item" />
+      <Button onClick={onClickUndate} name={isEdit ? "Save" : "Edit"} />
     </li>
   );
 };

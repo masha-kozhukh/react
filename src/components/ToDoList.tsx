@@ -36,13 +36,18 @@ export const ToDoList = React.memo((props: ListsProps) => {
     setItems(items.filter((item) => item.id !== id));
   };
 
+  const onInputChange = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => setNewText(e.target.value),
+    []
+  );
+  
   return (
     <section className="">
       <p className="subTitle">{subtitle}</p>
       <h1 className="title">{title}</h1>
       <div>
         <Input
-          onChange={(e) => setNewText(e.target.value)}
+          onChange={onInputChange}
           type={type}
           value={newText}
           placeholder={placeholder}
