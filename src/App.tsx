@@ -117,6 +117,7 @@ const hooks = {
     };
   },
   
+  
 };
 function App() {
   const { onShowInformationClick, showInformation } =
