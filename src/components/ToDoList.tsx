@@ -20,27 +20,32 @@ export const ToDoList = React.memo((props: ListsProps) => {
     null
   );
 
-  const addItem = () => {
+  const addItem = React.useCallback(() => {
     if (newText.trim()) {
       setItems([...items, { id: Date.now(), text: newText }]);
       setNewText("");
     }
-  };
-  const updateItem = () => {
+  }, [newText, setItems, setNewText]);
+
+  const updateItem = React.useCallback(() => {
     setItems(
       items.map((t) => (t.id === newTextWithId?.id ? newTextWithId : t))
     );
     setNewTextWithId(null);
-  };
-  const deleteItem = (id: number) => {
-    setItems(items.filter((item) => item.id !== id));
-  };
+  }, [setItems, newTextWithId, setNewTextWithId]);
+
+  const deleteItem = React.useCallback(
+    (id: number) => {
+      setItems(items.filter((item) => item.id !== id));
+    },
+    [items]
+  );
 
   const onInputChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => setNewText(e.target.value),
     []
   );
-  
+
   return (
     <section className="">
       <p className="subTitle">{subtitle}</p>
