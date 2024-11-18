@@ -8,12 +8,27 @@ export type ListsProps = {
   initialItems: TextWithId[];
   subtitle: string;
   title: string;
-  type: string;
   placeholder?: string;
+  classNameAddButton?: string;
+  buttonTextAdd: string;
+  buttonTextRemove: string;
+  buttonTextSave: string;
+  buttonTextEdit: string;
 };
 
 export const ToDoList = React.memo((props: ListsProps) => {
-  const { subtitle, title, type, initialItems, placeholder } = props;
+  const {
+    subtitle,
+    title,
+    initialItems,
+    placeholder,
+    classNameAddButton,
+    buttonTextAdd,
+    buttonTextRemove,
+    buttonTextSave,
+    buttonTextEdit,
+  } = props;
+
   const [items, setItems] = React.useState<TextWithId[]>(initialItems);
   const [newText, setNewText] = React.useState<string>("");
   const [newTextWithId, setNewTextWithId] = React.useState<TextWithId | null>(
@@ -36,14 +51,14 @@ export const ToDoList = React.memo((props: ListsProps) => {
 
   const deleteItem = React.useCallback(
     (id: number) => {
-      setItems(items.filter((item) => item.id !== id));
+      setItems((prevItems) => prevItems.filter((item) => item.id !== id));
     },
-    [items]
+    [setItems]
   );
 
   const onInputChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => setNewText(e.target.value),
-    []
+    [setNewText]
   );
 
   return (
@@ -53,11 +68,15 @@ export const ToDoList = React.memo((props: ListsProps) => {
       <div>
         <Input
           onChange={onInputChange}
-          type={type}
           value={newText}
           placeholder={placeholder}
         />
-        <Button disabled={!newText.trim()} onClick={addItem} name="add list" />
+        <Button
+          disabled={!newText.trim()}
+          onClick={addItem}
+          name={buttonTextAdd}
+          className={classNameAddButton}
+        />
         <ul>
           {items.map((item) => (
             <ToDoItem
@@ -67,6 +86,9 @@ export const ToDoList = React.memo((props: ListsProps) => {
               deleteItem={deleteItem}
               setNewTextWithId={setNewTextWithId}
               newTextWithId={newTextWithId}
+              buttonTextRemove={buttonTextRemove}
+              buttonTextSave={buttonTextSave}
+              buttonTextEdit={buttonTextEdit}
             />
           ))}
         </ul>

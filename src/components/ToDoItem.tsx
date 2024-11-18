@@ -1,14 +1,20 @@
 import React from "react";
 import { Button } from "./Button";
-import { Input } from "./Input";
+import { Input, InputType } from "./Input";
 import { TextWithId } from "../types/common";
+import { text } from "node:stream/consumers";
 
-type ToDoItem = {
+export type ToDoItem = {
   item: TextWithId;
   updateItem: () => void;
   deleteItem: (id: number) => void;
   setNewTextWithId: (item: TextWithId | null) => void;
   newTextWithId: TextWithId | null;
+  className?: string;
+  buttonTextRemove: string;
+  buttonTextSave: string;
+  buttonTextEdit: string;
+  editInputType?: InputType;
 };
 
 export const ToDoItem: React.FC<ToDoItem> = ({
@@ -17,21 +23,26 @@ export const ToDoItem: React.FC<ToDoItem> = ({
   deleteItem,
   setNewTextWithId,
   newTextWithId,
+  className = "item",
+  buttonTextRemove,
+  buttonTextSave,
+  buttonTextEdit,
+  editInputType = InputType.text,
 }) => {
   const isEdit = newTextWithId?.id === item.id;
-  
+
   const onInputChangeNewTextWithId = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) =>
       setNewTextWithId({
         id: newTextWithId?.id ?? 0,
         text: e.target.value,
       }),
-    [newTextWithId]
+    [setNewTextWithId, newTextWithId]
   );
 
   const onClickRemove = React.useCallback(() => {
     deleteItem(item.id);
-  }, [item.id]); //bug, something goes wrong when deleting items
+  }, [deleteItem, item.id]);
 
   const onClickUndate = React.useCallback(() => {
     if (isEdit) {
@@ -42,18 +53,22 @@ export const ToDoItem: React.FC<ToDoItem> = ({
   }, [isEdit, updateItem, setNewTextWithId, item]);
 
   return (
-    <li>
+    <li className={className}>
       {isEdit ? (
         <Input
           onChange={onInputChangeNewTextWithId}
           value={newTextWithId.text}
-          type="text"
+          type={editInputType}
         />
       ) : (
         item.text
       )}
-      <Button disabled={isEdit} onClick={onClickRemove} name="remove item" />
-      <Button onClick={onClickUndate} name={isEdit ? "Save" : "Edit"} />
+      <Button
+        disabled={isEdit}
+        onClick={onClickRemove}
+        name={buttonTextRemove}
+      />
+      <Button onClick={onClickUndate} name={isEdit ? buttonTextSave : buttonTextEdit} />
     </li>
   );
 };
