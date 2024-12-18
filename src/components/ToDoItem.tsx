@@ -2,14 +2,11 @@ import React from "react";
 import { Button } from "./Button";
 import { Input, InputType } from "./Input";
 import { TextWithId } from "../types/common";
-import { text } from "node:stream/consumers";
 
 export type ToDoItem = {
   item: TextWithId;
-  updateItem: () => void;
+  updateItem: (newTextWithId: TextWithId | null) => void;
   deleteItem: (id: number) => void;
-  setNewTextWithId: (item: TextWithId | null) => void;
-  newTextWithId: TextWithId | null;
   className?: string;
   buttonTextRemove: string;
   buttonTextSave: string;
@@ -21,54 +18,56 @@ export const ToDoItem: React.FC<ToDoItem> = ({
   item,
   updateItem,
   deleteItem,
-  setNewTextWithId,
-  newTextWithId,
   className = "item",
   buttonTextRemove,
   buttonTextSave,
   buttonTextEdit,
   editInputType = InputType.text,
 }) => {
-  const isEdit = newTextWithId?.id === item.id;
+  const [newText, setNewText] = React.useState<string>(item.text);
+  const [isEdit, setIsEdit] = React.useState<boolean>(false);
 
-  const onInputChangeNewTextWithId = React.useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) =>
-      setNewTextWithId({
-        id: newTextWithId?.id ?? 0,
-        text: e.target.value,
-      }),
-    [setNewTextWithId, newTextWithId]
+  const onInputChangeNewText = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => setNewText(e.target.value),
+    [setNewText]
   );
 
   const onClickRemove = React.useCallback(() => {
     deleteItem(item.id);
   }, [deleteItem, item.id]);
 
-  const onClickUndate = React.useCallback(() => {
-    if (isEdit) {
-      updateItem();
-    } else {
-      setNewTextWithId(item);
+  const onClickUpdate = React.useCallback(() => {
+    if (!!newText) {
+      updateItem({
+        id: item.id,
+        text: newText,
+      });
     }
-  }, [isEdit, updateItem, setNewTextWithId, item]);
+    setIsEdit((previousState) => !previousState);
+  }, [newText, updateItem, item, setIsEdit]);
 
   return (
     <li className={className}>
       {isEdit ? (
         <Input
-          onChange={onInputChangeNewTextWithId}
-          value={newTextWithId.text}
+          onChange={onInputChangeNewText}
+          value={newText}
           type={editInputType}
         />
       ) : (
         item.text
       )}
+
       <Button
         disabled={isEdit}
         onClick={onClickRemove}
         name={buttonTextRemove}
       />
-      <Button onClick={onClickUndate} name={isEdit ? buttonTextSave : buttonTextEdit} />
+
+      <Button
+        onClick={onClickUpdate}
+        name={isEdit ? buttonTextSave : buttonTextEdit}
+      />
     </li>
   );
 };

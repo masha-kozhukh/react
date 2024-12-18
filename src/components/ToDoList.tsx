@@ -31,9 +31,6 @@ export const ToDoList = React.memo((props: ListsProps) => {
 
   const [items, setItems] = React.useState<TextWithId[]>(initialItems);
   const [newText, setNewText] = React.useState<string>("");
-  const [newTextWithId, setNewTextWithId] = React.useState<TextWithId | null>(
-    null
-  );
 
   const addItem = React.useCallback(() => {
     if (newText.trim()) {
@@ -46,25 +43,26 @@ export const ToDoList = React.memo((props: ListsProps) => {
     }
   }, [newText, setItems, setNewText]);
 
-  const updateItem = React.useCallback(() => {
-    if (!newTextWithId || !newTextWithId.text || !newTextWithId.id) {
-      return;
-    }
-
-    setItems((previousState) => {
-      const indexOfUpdatingItem = previousState.findIndex(
-        (item) => item.id === newTextWithId.id
-      );
-
-      if (indexOfUpdatingItem !== -1) {
-        previousState[indexOfUpdatingItem].text = newTextWithId.text;
+  const updateItem = React.useCallback(
+    (newTextWithId: TextWithId | null) => {
+      if (!newTextWithId || !newTextWithId.text || !newTextWithId.id) {
+        return;
       }
 
-      return previousState;
-    });
+      setItems((previousState) => {
+        const indexOfUpdatingItem = previousState.findIndex(
+          (item) => item.id === newTextWithId.id
+        );
 
-    setNewTextWithId(null);
-  }, [setItems, newTextWithId, setNewTextWithId]);
+        if (indexOfUpdatingItem !== -1) {
+          previousState[indexOfUpdatingItem].text = newTextWithId.text;
+        }
+
+        return previousState;
+      });
+    },
+    [setItems]
+  );
 
   const deleteItem = React.useCallback(
     (id: number) => {
@@ -101,8 +99,6 @@ export const ToDoList = React.memo((props: ListsProps) => {
               item={item}
               updateItem={updateItem}
               deleteItem={deleteItem}
-              setNewTextWithId={setNewTextWithId}
-              newTextWithId={newTextWithId}
               buttonTextRemove={buttonTextRemove}
               buttonTextSave={buttonTextSave}
               buttonTextEdit={buttonTextEdit}
