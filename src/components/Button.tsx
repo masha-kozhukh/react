@@ -8,16 +8,23 @@ export enum ButtonType {
 
 export type ButtonsProps = {
   onClick: () => void;
-  name: string;
+  className?: string;
+  name?: string;
   disabled?: boolean;
   type?: ButtonType;
 };
 
 export const Button = React.memo((props: ButtonsProps) => {
-  const { name, disabled = false, type = ButtonType.button, ...rest } = props;
+  const {
+    className = "button",
+    name,
+    disabled = false,
+    type = ButtonType.button,
+    ...rest
+  } = props;
 
   return (
-    <button disabled={disabled} type={type} {...rest}>
+    <button className={className} disabled={disabled} type={type} {...rest}>
       {name}
     </button>
   );

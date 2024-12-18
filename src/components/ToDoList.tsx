@@ -8,33 +8,75 @@ export type ListsProps = {
   initialItems: TextWithId[];
   subtitle: string;
   title: string;
-  type: string;
   placeholder?: string;
+  classNameAddButton?: string;
+  buttonTextAdd: string;
+  buttonTextRemove: string;
+  buttonTextSave: string;
+  buttonTextEdit: string;
 };
 
 export const ToDoList = React.memo((props: ListsProps) => {
-  const { subtitle, title, type, initialItems, placeholder } = props;
+  const {
+    subtitle,
+    title,
+    initialItems,
+    placeholder,
+    classNameAddButton,
+    buttonTextAdd,
+    buttonTextRemove,
+    buttonTextSave,
+    buttonTextEdit,
+  } = props;
+
   const [items, setItems] = React.useState<TextWithId[]>(initialItems);
   const [newText, setNewText] = React.useState<string>("");
   const [newTextWithId, setNewTextWithId] = React.useState<TextWithId | null>(
     null
   );
 
-  const addItem = () => {
+  const addItem = React.useCallback(() => {
     if (newText.trim()) {
-      setItems([...items, { id: Date.now(), text: newText }]);
+      setItems((previousState) => [
+        ...previousState,
+        { id: Date.now(), text: newText },
+      ]);
+
       setNewText("");
     }
-  };
-  const updateItem = () => {
-    setItems(
-      items.map((t) => (t.id === newTextWithId?.id ? newTextWithId : t))
-    );
+  }, [newText, setItems, setNewText]);
+
+  const updateItem = React.useCallback(() => {
+    if (!newTextWithId || !newTextWithId.text || !newTextWithId.id) {
+      return;
+    }
+
+    setItems((previousState) => {
+      const indexOfUpdatingItem = previousState.findIndex(
+        (item) => item.id === newTextWithId.id
+      );
+
+      if (indexOfUpdatingItem !== -1) {
+        previousState[indexOfUpdatingItem].text = newTextWithId.text;
+      }
+
+      return previousState;
+    });
+
     setNewTextWithId(null);
-  };
-  const deleteItem = (id: number) => {
-    setItems(items.filter((item) => item.id !== id));
-  };
+  }, [setItems, newTextWithId, setNewTextWithId]);
+
+  const deleteItem = React.useCallback(
+    (id: number) => {
+      setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    },
+    [setItems]
+  );
+
+  const onInputChange = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => setNewText(e.target.value),
+    [setNewText]
+  );
 
   return (
     <section className="">
@@ -42,12 +84,16 @@ export const ToDoList = React.memo((props: ListsProps) => {
       <h1 className="title">{title}</h1>
       <div>
         <Input
-          onChange={(e) => setNewText(e.target.value)}
-          type={type}
+          onChange={onInputChange}
           value={newText}
           placeholder={placeholder}
         />
-        <Button disabled={!newText.trim()} onClick={addItem} name="add list" />
+        <Button
+          disabled={!newText.trim()}
+          onClick={addItem}
+          name={buttonTextAdd}
+          className={classNameAddButton}
+        />
         <ul>
           {items.map((item) => (
             <ToDoItem
@@ -57,6 +103,9 @@ export const ToDoList = React.memo((props: ListsProps) => {
               deleteItem={deleteItem}
               setNewTextWithId={setNewTextWithId}
               newTextWithId={newTextWithId}
+              buttonTextRemove={buttonTextRemove}
+              buttonTextSave={buttonTextSave}
+              buttonTextEdit={buttonTextEdit}
             />
           ))}
         </ul>

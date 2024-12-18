@@ -140,3 +140,72 @@
   line-height: 70px;
   margin-bottom: 10px;
 }
+
+.input {
+  width: 250px;
+  height: 15px;
+  padding: 5px 10px;
+  border-radius: 12px 0px 0px 12px;
+  border: 1px solid #56597a;
+  font-size: 14px;
+  line-height: 1.1;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  color: #000;
+}
+.input:focus-visible {
+  border: 1px solid #32333b;
+  outline: none;
+}
+input::placeholder {
+  font-size: 14px;
+  line-height: 1.1;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  color: #000;
+}
+.addButton {
+  width: 70px;
+  height: 27px;
+  border-radius: 0px 12px 12px 0px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.1;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  color: #000;
+  background: #f78cb6;
+  border: none;
+  transition: 1s all ease-in-out;
+  cursor: pointer;
+}
+.addButton:hover {
+  background: #de6b99;
+}
+.button {
+  width: 150;
+  height: 27px;
+  text-align: center;
+  font-size: 14px;
+  margin-right: 5px;
+  margin-left: 5px;
+  line-height: 1.1;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  color: #000;
+  background: #bb67c2;
+  border: none;
+  transition: 1s all ease-in-out;
+  cursor: pointer;
+}
+.button {
+  background: #c551cf;
+}
+.item {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.1;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  color: #000;
+}
