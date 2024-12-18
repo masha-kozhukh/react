@@ -34,14 +34,12 @@ export const ToDoList = React.memo((props: ListsProps) => {
   const [newText, setNewText] = React.useState<string>("");
 
   const addItem = React.useCallback(() => {
-    if (newText.trim()) {
-      setItems((previousState) => [
-        ...previousState,
-        { id: Date.now(), text: newText },
-      ]);
+    setItems((previousState) => [
+      ...previousState,
+      { id: Date.now(), text: newText },
+    ]);
 
-      setNewText("");
-    }
+    setNewText("");
   }, [newText, setItems, setNewText]);
 
   const updateItem = React.useCallback(
