@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "./Button";
 import { Input, InputType } from "./Input";
 import { TextWithId } from "../types/common";
+import { inputHooks } from "../hooks/inputHooks";
 
 export type ToDoItem = {
   item: TextWithId;
@@ -27,10 +28,7 @@ export const ToDoItem: React.FC<ToDoItem> = ({
   const [newText, setNewText] = React.useState<string>(item.text);
   const [isEdit, setIsEdit] = React.useState<boolean>(false);
 
-  const onInputChangeNewText = React.useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => setNewText(e.target.value),
-    [setNewText]
-  );
+  const onInputChangeNewText = inputHooks.useInputChange(setNewText);
 
   const onClickRemove = React.useCallback(() => {
     deleteItem(item.id);

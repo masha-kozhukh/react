@@ -3,6 +3,7 @@ import { ToDoItem } from "./ToDoItem";
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { TextWithId } from "../types/common";
+import { inputHooks } from "../hooks/inputHooks";
 
 export type ListsProps = {
   initialItems: TextWithId[];
@@ -71,10 +72,7 @@ export const ToDoList = React.memo((props: ListsProps) => {
     [setItems]
   );
 
-  const onInputChange = React.useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => setNewText(e.target.value),
-    [setNewText]
-  );
+  const onInputChange = inputHooks.useInputChange(setNewText);
 
   return (
     <section className="">
