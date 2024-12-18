@@ -37,15 +37,32 @@ export const ToDoList = React.memo((props: ListsProps) => {
 
   const addItem = React.useCallback(() => {
     if (newText.trim()) {
-      setItems([...items, { id: Date.now(), text: newText }]);
+      setItems((previousState) => [
+        ...previousState,
+        { id: Date.now(), text: newText },
+      ]);
+
       setNewText("");
     }
   }, [newText, setItems, setNewText]);
 
   const updateItem = React.useCallback(() => {
-    setItems(
-      items.map((t) => (t.id === newTextWithId?.id ? newTextWithId : t))
-    );
+    if (!newTextWithId || !newTextWithId.text || !newTextWithId.id) {
+      return;
+    }
+
+    setItems((previousState) => {
+      const indexOfUpdatingItem = previousState.findIndex(
+        (item) => item.id === newTextWithId.id
+      );
+
+      if (indexOfUpdatingItem !== -1) {
+        previousState[indexOfUpdatingItem].text = newTextWithId.text;
+      }
+
+      return previousState;
+    });
+
     setNewTextWithId(null);
   }, [setItems, newTextWithId, setNewTextWithId]);
 
