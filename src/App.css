@@ -182,6 +182,11 @@ input::placeholder {
 .addButton:hover {
   background: #de6b99;
 }
+.addButton[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
 .button {
   width: 150;
   height: 27px;
