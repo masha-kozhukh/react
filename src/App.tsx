@@ -8,8 +8,9 @@ import { ThreeLayer } from "./icons/ThreeLayer";
 import { Button } from "./components/Button";
 import React from "react";
 import { Artist } from "./icons/Artist";
-import { Accordion, AccordionsProps } from "./components/Accordion";
+import { Accordion } from "./components/Accordion";
 import { ToDoList, ListsProps } from "./components/ToDoList";
+import { accordions } from "./constants/accordions";
 
 const lists: ListsProps = {
   initialItems: [
@@ -23,30 +24,8 @@ const lists: ListsProps = {
   classNameAddButton: "addButton",
   buttonTextAdd: "add list",
   buttonTextRemove: "remove item",
-  buttonTextSave:"Save",
-  buttonTextEdit:"Edit" 
-};
-
-const accordions: AccordionsProps = {
-  contents: [
-    {
-      name: "Design",
-      text: "a plan or drawing produced to show the look and function",
-      id: 0,
-    },
-    {
-      name: "Design",
-      text: "a plan or drawing produced to show the look and function",
-      id: 1,
-    },
-    {
-      name: "Design",
-      text: "a plan or drawing produced to show the look and function",
-      id: 2,
-    },
-  ],
-  subtitle: "Our accordions",
-  title: "Why People Choose Accordions",
+  buttonTextSave: "Save",
+  buttonTextEdit: "Edit",
 };
 
 const services: ServicesProps = {
@@ -107,6 +86,7 @@ const information: InformationProps = {
     name: "Learn more",
   },
 };
+
 const hooks = {
   useShowInformationButtonHandler() {
     const [showInformation, setShowInformation] = React.useState<boolean>(true);
@@ -121,6 +101,7 @@ const hooks = {
     };
   },
 };
+
 function App() {
   const { onShowInformationClick, showInformation } =
     hooks.useShowInformationButtonHandler();
