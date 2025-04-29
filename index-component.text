@@ -1,0 +1,72 @@
+<section class="index-component ">
+    <div class="container">
+        <h2 class="title text-uppercase mb-4">
+            {% if shop.locale == 'uk' %}
+                ВІДКРИЙ ДЛЯ СЕБЕ <br>
+                ВСІ ПЕРЕВАГИ <span>VELO</span>
+            {% else %}
+                ОТКРЫЙ ДЛЯ СЕБЯ <br>
+                ВСЕ ПРЕИМУЩЕСТВА <span>VELO</span>
+            {% endif %}
+        </h2>
+        <div class="d-flex justify-content-between">
+            <div class="d-flex flex-column">
+                <div class="component-item align-items-center">
+                    <picture class="advantages-card">
+                        <img src="{{ 'component-card-1.svg' | asset_url }}" alt="">
+                    </picture>
+                    <p>{% if shop.locale == 'uk' %}
+                            Задля нікотинового насичення.
+                        {% else %}
+                            Ради никотинового насыщения.
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="component-item align-items-center mb-0">
+                    <picture class="advantages-card">
+                        <img src="{{ 'component-card-2.svg' | asset_url }}" alt="">
+                    </picture>
+                    <p>{% if shop.locale == 'uk' %}
+                            Саме з них складається оболонка пауча, що допомогає зберігати форму пауча бездоганною.
+                        {% else %}
+                            Именно из них состоит оболочка пауча, помогающая сохранять форму пауча безупречной.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="component-item-img">
+                <picture class="">
+                    <img class="" src="{{ 'component-card-2.png' | asset_url }}" alt="">
+                </picture>
+            </div>
+            <div class="d-flex flex-column">
+                <div class="component-item align-items-baseline reverse">
+                    <p>{% if shop.locale == 'uk' %}
+                            Дарують незабутні смаки.
+                        {% else %}
+                            Дарят незабываемые вкусы.
+                        {% endif %}
+                    </p>
+                    <picture class="advantages-card">
+                        <img src="{{ 'component-card-3.svg' | asset_url }}" alt="">
+                    </picture>
+
+                </div>
+                <div class="component-item align-items-baseline mb-0 reverse">
+                    <p>{% if shop.locale == 'uk' %}
+                            Куди ж без неї! Навіть людське тіло містить воду, і наші паучі також.
+                        {% else %}
+                            Куда без нее! Даже человеческое тело содержит воду, и наши паучи тоже.
+                        {% endif %}
+                    </p>
+                    <picture class="advantages-card">
+                        <img src="{{ 'component-card-4.svg' | asset_url }}" alt="">
+                    </picture>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>

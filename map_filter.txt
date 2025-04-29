@@ -1,0 +1,204 @@
+<div id="where-to-buy" class="c-section c-section--alt distinct_page_map-padding store-finder gt-Contact_Map_View" data-id="store_finder">
+
+        <div class="c-section__block">
+            <div class="wrap__item" style="overflow: hidden">
+                <div class="row">
+                    <div class="col-12 col-lg-3 col-xl-3">
+                        <div class="container" >
+                            <div class="map-city mb-4">
+                                <div class="d-flex align-items-center">
+                                    <h4 class="map-city-title mb-0">КИЇВ</h4>
+                                    <picture class="d-none">
+                                        <img  class="lazyload" src="{{ 'map-icon.png' | asset_img_url: 'master', format: 'pjpg' }}">
+                                    </picture>
+                                </div>
+
+                                <ul class="map-list pl-0">
+                                    <li>
+                                        Харків
+                                    </li>
+                                    <li>
+                                        Дніпро
+                                    </li>
+                                    <li>
+                                        Запоріжжя
+                                    </li>
+                                    <li>
+                                        Львів
+                                    </li>
+                                    <li>
+                                        Черкаси
+                                    </li>
+                                    <li>
+                                        Івано-Франківськ
+                                    </li>
+                                    <li>
+                                        Ірпінь
+                                    </li>
+                                    <li>
+                                        Чернівці
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class=" input-blocks mb-4">
+                                <div class="input-group address-block">
+                                    <label>{% if shop.locale == 'uk' %}Виберіть місто{% else %}Выберите город{% endif %}</label>
+                                    <input type="text" class="c-field__input distinct_page_map-input"
+                                           placeholder="{% if shop.locale == 'uk' %}Виберіть місто{% else %}Выберите город{% endif %}"
+                                           data-id="address" autocomplete="off"/>
+                                </div>
+                            </div>
+                            <div class="map-switch-block mb-4">
+                                <a href="#tab-1" data-id="switch_map" class="">
+                                    {% render 'icon-locator' %}
+                                    Карта
+                                </a>
+                                <a href="#tab-2" data-id="switch_list">
+                                    {% render 'icon-map-list' %}
+                                    Список
+                                </a>
+                                <a href="#tab-3" data-id="switch_filter">
+                                    <picture class="">
+                                        <img  class="lazyload" src="{{ 'map-filter.png' | asset_img_url: 'master', format: 'pjpg' }}">
+                                    </picture>
+                                </a>
+                            </div>
+                            <div  id="tab-3"  class="map-filter tabs-content">
+                                <div class="d-flex flex-column mb-4">
+                                    <h5 class="f-15 fw-700">Тип точки</h5>
+                                    <div class="input-group ">
+                                        <input class="input-checkbox" type="checkbox" id="all" />
+                                        <label class="f-15" for="all">{% if shop.locale == 'uk' %}Усі точки{% else %}Все точки{% endif %}</label>
+                                    </div>
+                                    <div class="input-group ">
+                                        <input class="input-checkbox" type="checkbox" id="space" />
+                                        <label class="f-15" for="space">{% if shop.locale == 'uk' %}Фірмові простори glo™{% else %}Фирменные пространства glo™{% endif %}</label>
+                                    </div>
+                                    <div class="input-group ">
+                                        <input class="input-checkbox" type="checkbox" id="fortune" />
+                                        <label class="f-15" for="fortune">{% if shop.locale == 'uk' %}ТТ Фортуна{% else %}ТТ Фортуна{% endif %}</label>
+                                    </div>
+                                    <div class="input-group ">
+                                        <input class="input-checkbox" type="checkbox" id="atb" />
+                                        <label class="f-15" for="atb">{% if shop.locale == 'uk' %}АТБ Мережа{% else %}АТБ Сеть{% endif %}</label>
+                                    </div>
+
+                                </div>
+                                <div class="d-flex flex-column mb-4 ">
+                                    <h5 class="f-15 fw-700">{% if shop.locale == 'uk' %}Тип продукції{% else %}Тип продукции{% endif %}</h5>
+                                    <div class="input-group ">
+                                        <input class="input-checkbox" type="checkbox" id="pro" />
+                                        <label class="f-15" for="pro">{% if shop.locale == 'uk' %}Стіки для glo™ PRO{% else %}Стики для glo™ PRO{% endif %}</label>
+                                    </div>
+                                    <div class="input-group ">
+                                        <input class="input-checkbox" type="checkbox" id="hyper" />
+                                        <label class="f-15" for="hyper">{% if shop.locale == 'uk' %}Стіки для glo™ Hyper{% else %}Стики для glo™ Hyper{% endif %}</label>
+                                    </div>
+                                    <div class="input-group ">
+                                        <input class="input-checkbox" type="checkbox" id="devices" />
+                                        <label class="f-15" for="devices">{% if shop.locale == 'uk' %}Пристрої glo™{% else %}Устройства glo™{% endif %}</label>
+                                    </div>
+                                    <div class="input-group ">
+                                        <input class="input-checkbox" type="checkbox" id="velo" />
+                                        <label class="f-15" for="velo">VELO</label>
+                                    </div>
+
+                                </div>
+                                <div class="d-flex flex-column ">
+                                    <h5 class="f-15 fw-700">{% if shop.locale == 'uk' %}Додатково{% else %}Дополнительно{% endif %}</h5>
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="toggle-btn" id="toggle-btn">
+                                            <input id="toggle-test" type="checkbox">
+                                            <span class="toggle-span"></span>
+                                        </div>
+                                        <label for="toggle-test" class="f-13-only mb-0 ml-3 toggle-label">{% if shop.locale == 'uk' %}Можна оформити тест-драйв{% else %}Можно оформить тест-драйв{% endif %}</label>
+
+                                    </div>
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="toggle-btn" id="toggle-btn">
+                                            <input id="toggle-discount" type="checkbox">
+                                            <span class="toggle-span"></span>
+                                        </div>
+                                        <label for="toggle-discount" class="f-13-only mb-0 ml-3 toggle-label">{% if shop.locale == 'uk' %}Діє знижка 50%  для приведенного друга{% else %}Действует скидка 50% для приведенного друга{% endif %}</label>
+
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="toggle-btn" id="toggle-btn">
+                                            <input id="toggle-off-line" type="checkbox">
+                                            <span class="toggle-span"></span>
+                                        </div>
+                                        <label for="toggle-off-line" class="f-13-only mb-0 ml-3 toggle-label">{% if shop.locale == 'uk' %} Автономні точки (працюють під час відключення світла){% else %} Автономные точки (работают при отключении света){% endif %}</label>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl-6 ">
+
+                        <div class="o-grid glo-map active">
+                            <div id="tab-1" class="sf-map tabs-content" data-lat="48.3794" data-lng="31.1656"></div>
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-lg-3 col-xl-3 ">
+                        <div data-id="map"  id="tab-2" class="map-list tabs-content" >
+                            <div class="container">
+                                <div class="f-15" >
+                                    <h4 class="f-15 mb-2">ТРЦ Гермес</h4>
+                                    <p class="mb-2">Біла Церква, вул. Я. Мудрого, 40</p>
+                                    <p class="mb-2 glo-studio">glo studio💡</p>
+                                    <div class="mb-2">
+                                        <p class="mb-2">пн-пт: 09:00-19:00</p>
+                                        <p class="mb-0">сб-нд: 09:00-20:00</p>
+                                    </div>
+                                    <div class="mb-2">
+                                        <a>+38 050 471 19 45</a>
+                                    </div>
+                                    <div class="d-flex flex-wrap align-items-center map-tags">
+                                        <div class="map-tag glo-space">
+                                            glo studio
+                                        </div>
+                                        <div class="map-tag glo-clean">
+                                            чистка
+                                        </div>
+                                        <div class="map-tag engraving">
+                                            гравіювання
+                                        </div>
+                                        <div class="map-tag autonomy">
+                                            автономність
+                                        </div>
+                                        <div class="map-tag pop-up">
+                                            glo pop up💡
+                                        </div>
+                                        <div class="map-tag drinks " >
+                                            напої
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+<script>
+
+    $(document).ready(function(){
+       $(".tabs-control a:first").addClass("current");
+        $('.map-switch-block a').click(function (e) {
+            e.preventDefault();
+            var _href = $(this).attr("href");
+            $(".map-switch-block a").removeClass("current");
+            $(this).addClass("current");
+            $(".tabs-content").hide();
+            $(_href).fadeIn();
+        });
+    })
+</script>

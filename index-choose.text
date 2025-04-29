@@ -1,0 +1,530 @@
+<section class="" style="padding-bottom: 90px; background: white; " >
+    <div class="container">
+        <h2 class=" title text-right mb-70">
+            {% if shop.locale == 'uk' %}
+                ОБЕРИ ІДЕАЛЬНИЙ <br> ФОРМАТ <span class="d-inline"> VELO</span>
+            {% else %}
+                ВЫБЕРИ ИДЕАЛЬНЫЙ <br> ФОРМАТ <span class="d-inline">VELO</span>
+            {% endif %}
+        </h2>
+
+
+    </div>
+
+
+    <div class="swiper-container  js-index-choose__slider">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <div class=" d-none d-lg-flex d-md-flex  flex-column justify-content-end  text-center">
+                    <div class=" mt-2 text-uppercase">
+                        {% if shop.locale == 'uk' %}
+                            формат <br> пауча:
+                        {% else %}
+                            формат <br> пауча:
+                        {% endif %}
+
+                    </div>
+                </div>
+                <div class="index-choose-block d-flex flex-column align-items-center text-center">
+                    <div class="title mb-lg-5 mb-2">
+                        Для <span class="pr-0"> VELO</span>-  {% if shop.locale == 'uk' %}новачків{% else %}новичков{% endif %}
+                    </div>
+                    <picture class="advantages-card">
+                        <img src="{{ 'glo-sticks-1.png' | asset_url }}" alt="">
+                    </picture>
+                    <div class="title-small mt-2 text-uppercase">
+                        MINI
+                    </div>
+                </div>
+                <div class="index-choose-block d-flex flex-column align-items-center  text-center">
+                    <div class="title mb-lg-5 mb-2 ">
+                        {% if shop.locale == 'uk' %}Для добре знайомих із{% else %}Для хорошо знакомых с{% endif %}<span>VELO </span>
+                    </div>
+                    <picture class="advantages-card">
+                        <img src="{{ 'glo-sticks-1.png' | asset_url }}" alt="">
+                    </picture>
+                    <div class="title-small mt-2 text-uppercase">
+                        slim
+                    </div>
+
+                </div>
+                <div class="index-choose-block d-flex flex-column align-items-center  text-center">
+                    <div class="title mb-lg-5 mb-2">
+                        {% if shop.locale == 'uk' %}Для прокачаних{% else %}Для прокачанных{% endif %}  <span class="pr-0"> VELO</span>-юзерів
+                    </div>
+                    <picture class="advantages-card">
+                        <img src="{{ 'glo-sticks-1.png' | asset_url }}" alt="">
+                    </picture>
+                        <div class="title-small mt-2 text-uppercase">
+                            regular
+                        </div>
+
+
+
+                </div>
+            </div>
+
+            {% comment %}<div class="index-choose-scrollbar swiper-scrollbar  js-taste-slider-scrollbar"></div>{% endcomment %}
+            <div class="index-choose-scrollbar swiper-scrollbar js-taste-slider-scrollbar" style="position: relative"></div>
+
+            <div class="d-flex justify-content-between mb-4">
+                <div class=" d-none d-lg-flex d-md-flex flex-column justify-content-end  text-center">
+                    <div class=" mt-2 text-uppercase">
+                        {% if shop.locale == 'uk' %}
+                            міцність:
+                        {% else %}
+                            прочность:
+                        {% endif %}
+
+                    </div>
+                </div>
+                <div class="index-choose-block d-flex flex-column align-items-center">
+
+                    <div class="title-small mb-3">
+                        MEDIUM
+                    </div>
+                    <picture class="advantages-card">
+                        <img src="{{ 'glo-strength-1.png' | asset_url }}" alt="">
+                    </picture>
+                </div>
+                <div class="index-choose-block d-flex flex-column align-items-center">
+
+                    <div class="title-small mb-3">
+                        strong   |   x-strong
+                    </div>
+                    <picture class="advantages-card">
+                        <img src="{{ 'glo-strength-2.png' | asset_url }}" alt="">
+                    </picture>
+                </div>
+                <div class="index-choose-block d-flex flex-column align-items-center">
+                    <div class="title-small mb-3">
+                        ULTRA
+                    </div>
+                    <picture class="advantages-card">
+                        <img src="{{ 'glo-strength-3.png' | asset_url }}" alt="">
+                    </picture>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <section class="home-choose home-choose--mini">
+                    <div class="home-choose__img">
+          <span>
+            <img class="d-xl-none" src="{{ 'img_home-choose_slider-slim--mob.png' | asset_url }}" alt="Обери свій розмір нікотинових паучів VELO slim">
+            <img class="d-none d-xl-block" src="{{ 'img_home-choose_slider-slim.png' | asset_url }}" alt="Обери свій розмір нікотинових паучів VELO slim">
+          </span>
+                        <div class="img-text">
+                            <span>VELO MINI</span>
+                            <div>{{ 'home_choose.mini.descr_html' | t }}</div>
+                        </div>
+                    </div>
+                    <div class="home-choose__list--wrapper bg-p-berry-frost">
+
+                        <div class="home-choose__list">
+                            <div>
+                                <div class="list-icon">
+                                    {% render 'icon_gfk_symbol' %}
+                                </div>
+                                <div class="list-descr fw-700">
+                                    {% if shop.locale == 'uk' %}
+                                        формат  пауча:
+                                    {% else %}
+                                        формат пауча:
+                                    {% endif %} <span class="fw-700 text-uppercase d-inline">MINI </span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="list-icon">
+                                    {% render 'icon_gfk_symbol' %}
+                                </div>
+                                <div class="list-descr">
+                                    {% if shop.locale == 'uk' %}
+                                        Найзручніший формат для знайомства з
+                                    {% else %}
+                                        Самый удобный формат для знакомства с
+                                        {% endif %}<span class="fw-700 text-uppercase d-inline">VELO</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="list-icon">
+                                    {% render 'icon_gfk_symbol' %}
+                                </div>
+                                <div class="list-descr">
+                                    {% if shop.locale == 'uk' %}
+                                        Компактні паучі та банка
+                                    {% else %}
+                                        Компактные паучи и банка
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="list-icon">
+                                    {% render 'icon_gfk_symbol' %}
+                                </div>
+                                <div class="list-descr">
+                                    {% if shop.locale == 'uk' %}
+                                        20 нікотинових паучів у банці
+                                    {% else %}
+                                        20 никотиновых паучей в банке
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="list-icon">
+                                    {% render 'icon_gfk_symbol' %}
+                                </div>
+                                <div class="list-descr">
+                                    {% if shop.locale == 'uk' %}
+                                        Яскравий Berry Frost MINI,
+                                        який поєдную смак лісових ягід
+                                        із прохолодою свіжої м'яти
+                                    {% else %}
+                                        Яркий Berry Frost MINI,
+                                        какой сочетаю вкус лесных ягод
+                                        с прохладой свежей мяты
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="list-descr d-flex justify-content-center">
+                                    <a href="#" class="btn btn-index btn-choose"> {% if shop.locale == 'uk' %}Замовити{% else %}Заказать{% endif %}</a>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="list-descr d-flex align-items-center ">
+                                    <picture class="">
+                                        <img src="{{ 'delivery.png' | asset_url }}" alt="">
+                                    </picture>
+                                    <a href="#" class="choose-link"> {% if shop.locale == 'uk' %}Безкоштовна доставка{% else %}Бесплатная доставка{% endif %}</a>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="swiper-slide">
+                <section class="home-choose home-choose--slim">
+                    <div class="home-choose__img">
+          <span>
+            <img src="{{ 'img_home-choose_slider-mini.png' | asset_url }}" alt="Нікотинові паучі VELO Urban vibe ultra та VELO x-freeze ultra">
+          </span>
+                        <div class="img-text bottom">
+                            <span>VELO SLIM</span>
+                            <div>{{ 'home_choose.slim.descr_html' | t }}</div>
+                        </div>
+                    </div>
+                    <div class="home-choose__list--wrapper  bg-p-ice-cool">
+
+                        <div class="home-choose__list">
+                            <div>
+                                <div class="list-icon">
+                                    {% render 'icon_gfk_symbol' %}
+                                </div>
+                                <div class="list-descr fw-700">
+                                    {% if shop.locale == 'uk' %}
+                                        формат  пауча:
+                                    {% else %}
+                                        формат пауча:
+                                    {% endif %} <span class="fw-700 text-uppercase d-inline">slim </span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="list-icon">
+                                    {% render 'icon_gfk_symbol' %}
+                                </div>
+                                <div class="list-descr">
+                                {% if shop.locale == 'uk' %}
+                                    Найзручніший формат для знайомства з
+                                {% else %}
+                                    Самый удобный формат для знакомства с
+                                    {% endif %}<span class="fw-700 text-uppercase d-inline">VELO</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="list-icon">
+                                    {% render 'icon_gfk_symbol' %}
+                                </div>
+                                <div class="list-descr">
+                                    {% if shop.locale == 'uk' %}
+                                        Компактні паучі та банка
+                                    {% else %}
+                                        Компактные паучи и банка
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="list-icon">
+                                    {% render 'icon_gfk_symbol' %}
+                                </div>
+                                <div class="list-descr">
+                                    {% if shop.locale == 'uk' %}
+                                        20 нікотинових паучів у банці
+                                    {% else %}
+                                        20 никотиновых паучей в банке
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="list-icon">
+                                    {% render 'icon_gfk_symbol' %}
+                                </div>
+                                <div class="list-descr">
+                                    {% if shop.locale == 'uk' %}
+                                        Яскравий Berry Frost MINI,
+                                        який поєдную смак лісових ягід
+                                        із прохолодою свіжої м'яти
+                                    {% else %}
+                                        Яркий Berry Frost MINI,
+                                        какой сочетаю вкус лесных ягод
+                                        с прохладой свежей мяты
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="list-descr d-flex justify-content-center">
+                                    <a href="#" class="btn btn-index btn-choose"> {% if shop.locale == 'uk' %}Замовити{% else %}Заказать{% endif %}</a>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="list-descr d-flex align-items-center">
+                                    <picture class="">
+                                        <img src="{{ 'delivery.png' | asset_url }}" alt="">
+                                    </picture>
+                                    <a href="#" class="choose-link"> {% if shop.locale == 'uk' %}Безкоштовна доставка{% else %}Бесплатная доставка{% endif %}</a>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="swiper-slide">
+                <section class="home-choose home-choose--regular">
+                    <div class="home-choose__img">
+          <span>
+            <img class="d-lg-none"  src="{{ 'img_home-choose_slider-regular--mob.png' | asset_url }}" alt="Обери свій розмір нікотинових паучів VELO">
+            <img class="d-none d-lg-block" src="{{ 'img_home-choose_slider-regular.png' | asset_url }}" alt="Обери свій розмір нікотинових паучів VELO">
+          </span>
+                        <div class="img-text">
+                            <span>VELO REGULAR</span>
+                            <div>{{ 'home_choose.regular.descr_html' | t }}</div>
+                        </div>
+                    </div>
+                    <div class="home-choose__list--wrapper bg-p-urban-vibe">
+
+                        <div class="home-choose__list">
+                            <div>
+                                <div class="list-icon">
+                                    {% render 'icon_gfk_symbol' %}
+                                </div>
+                                <div class="list-descr fw-700">
+                                    {% if shop.locale == 'uk' %}
+                                        формат  пауча:
+                                    {% else %}
+                                        формат пауча:
+                                    {% endif %} <span class="fw-700 text-uppercase d-inline">regular </span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="list-icon">
+                                    {% render 'icon_gfk_symbol' %}
+                                </div>
+                                <div class="list-descr">
+                                {% if shop.locale == 'uk' %}
+                                    Найзручніший формат для знайомства з
+                                {% else %}
+                                    Самый удобный формат для знакомства с
+                                    {% endif %}<span class="fw-700 text-uppercase d-inline">VELO</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="list-icon">
+                                    {% render 'icon_gfk_symbol' %}
+                                </div>
+                                <div class="list-descr">
+                                    {% if shop.locale == 'uk' %}
+                                        Компактні паучі та банка
+                                    {% else %}
+                                        Компактные паучи и банка
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="list-icon">
+                                    {% render 'icon_gfk_symbol' %}
+                                </div>
+                                <div class="list-descr">
+                                    {% if shop.locale == 'uk' %}
+                                        20 нікотинових паучів у банці
+                                    {% else %}
+                                        20 никотиновых паучей в банке
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="list-icon">
+                                    {% render 'icon_gfk_symbol' %}
+                                </div>
+                                <div class="list-descr">
+                                    {% if shop.locale == 'uk' %}
+                                        Яскравий Berry Frost MINI,
+                                        який поєдную смак лісових ягід
+                                        із прохолодою свіжої м'яти
+                                    {% else %}
+                                        Яркий Berry Frost MINI,
+                                        какой сочетаю вкус лесных ягод
+                                        с прохладой свежей мяты
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="list-descr d-flex justify-content-center">
+                                    <a href="#" class="btn btn-index btn-choose"> {% if shop.locale == 'uk' %}Замовити{% else %}Заказать{% endif %}</a>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="list-descr d-flex align-items-center">
+                                    <picture class="">
+                                        <img src="{{ 'delivery.png' | asset_url }}" alt="">
+                                    </picture>
+                                    <a href="#" class="choose-link"> {% if shop.locale == 'uk' %}Безкоштовна доставка{% else %}Бесплатная доставка{% endif %}</a>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+
+    </div>
+</section>
+
+
+
+
+
+
+{% schema %}
+{
+  "locales": {
+    "en": {
+      "home_choose": {
+        "header_html": "Обери свій <span class='c-dark-blue'>VELO</span>",
+        "block_descr_1": "З VELO ти можеш обирати не тільки смаки – ягідні, тропічні, морозно-свіжі та крижані, а й рівні міцності. Якщо ти тільки знайомишся з нікотиновими паучами, обирай формат MINI та Medium міцність. Для більш досвідчених користувачів – міцність Strong та X-Strong. А найдосвідченіші споживачі оцінять Ultra насичення зі смаком журавлини.",
+        "block_descr_2": "VELO. Різний та свій для кожного.",
+        "slim": {
+          "descr_html": "Яскраві смаки –<br/> справжнє насичення",
+          "list_text_1_html": "Паучі для більш досвідчених<br/> користувачів VELO",
+          "list_text_2_html": "Різноманітні смаки –<br/> Ice Cool, Berry Frost, Tropic Breeze та Freeze",
+          "list_text_3_html": "20 нікотинових паучів у банці"
+        },
+        "mini": {
+          "descr_html": "Компактний, комфортний,<br/> непомітний",
+          "list_text_1_html": "Найзручніший формат<br/> для знайомства з VELO",
+          "list_text_2_html": "Компактні паучі та банка",
+          "list_text_3_html": "Фруктові смаки – Berry Frost<br/> та Tropic Breeze",
+          "list_text_4_html": "20 паучів у банці"
+        },
+        "regular": {
+          "descr_html": "Коли прагнеш<br/> ультранасичення",
+          "list_text_1_html": "Для найдосвідченіших<br/> споживачів VELO",
+          "list_text_2_html": "Насичений Urban Vibe зі смаком журавлини та <br class='d-none d-lg-block'/>X-Freeze зі смаком вибухового ментолу",
+          "list_text_3_html": "18 нікотинових паучів у банці"
+        },
+        "strong": "Міцність",
+        "format": "ФОРМАТ ПАУЧІВ"
+      }
+    },
+    "ru": {
+      "home_choose": {
+        "header_html": "Выбери свой <span class='c-dark-blue'>VELO</span>",
+        "block_descr_1": "С VELO ты можешь выбирать не только вкусы – ягодные, тропические, морозно-свежие или ледяные, но и уровни крепости. Если ты только знакомишься с никотиновыми паучами, выбирай формат Mini и крепость Medium. Для более опытных пользователей – крепость Strong и X-Strong. А самые опытные потребители оценят Ultra насыщение со вкусом клюквы.",
+        "block_descr_2": "VELO. Разный и свой для каждого.",
+        "slim": {
+          "descr_html": "Яркие вкусы –<br/> настоящее насыщение",
+          "list_text_1_html": "Паучи для более опытных<br/> пользователей VELO",
+          "list_text_2_html": "Разнообразные вкусы –<br/> Ice Cool, Berry Frost, Tropic Breeze и Freeze",
+          "list_text_3_html": "20 никотиновых паучей в банке"
+        },
+        "mini": {
+          "descr_html": "Компактный, комфортный,<br/> незаметен",
+          "list_text_1_html": "Самый удобный формат<br/> для знакомства с VELO",
+          "list_text_2_html": "Компактные паучи и банка",
+          "list_text_3_html": "Фруктовые вкусы – Berry Frost<br/> и Tropic Breeze",
+          "list_text_4_html": "20 паучей в банке"
+        },
+        "regular": {
+          "descr_html": "Когда желаешь<br/> ультра насыщения",
+          "list_text_1_html": "Для самых опытных<br/> пользователей VELO",
+          "list_text_2_html": "Насыщенный Urban Vibe<br/> со вкусом клюквы и <br/>X-Freeze со вкусом взрывного ментола",
+          "list_text_3_html": "18 никотиновых паучей в банке"
+        },
+        "strong": "Крепость",
+        "format": "ФОРМАТ ПАУЧЕЙ"
+      }
+    },
+    "uk": {
+      "home_choose": {
+        "header_html": "Обери свій <span class='c-dark-blue'>VELO</span>",
+        "block_descr_1": "З VELO ти можеш обирати не тільки смаки – ягідні, тропічні, морозно-свіжі та крижані, а й рівні міцності. Якщо ти тільки знайомишся з нікотиновими паучами, обирай формат MINI та Medium міцність. Для більш досвідчених користувачів – міцність Strong та X-Strong. А найдосвідченіші споживачі оцінять Ultra насичення зі смаком журавлини.",
+        "block_descr_2": "VELO. Різний та свій для кожного.",
+        "slim": {
+          "descr_html": "Яскраві смаки –<br/> справжнє насичення",
+          "list_text_1_html": "Паучі для більш досвідчених<br/> користувачів VELO",
+          "list_text_2_html": "Різноманітні смаки –<br/> Ice Cool, Berry Frost, Tropic Breeze та Freeze",
+          "list_text_3_html": "20 нікотинових паучів у банці"
+        },
+        "mini": {
+          "descr_html": "Компактний, комфортний,<br/> непомітний",
+          "list_text_1_html": "Найзручніший формат<br/> для знайомства з VELO",
+          "list_text_2_html": "Компактні паучі та банка",
+          "list_text_3_html": "Фруктові смаки – Berry Frost<br/> та Tropic Breeze",
+          "list_text_4_html": "20 паучів у банці"
+        },
+        "regular": {
+          "descr_html": "Коли прагнеш<br/> ультранасичення",
+          "list_text_1_html": "Для найдосвідченіших<br/> споживачів VELO",
+          "list_text_2_html": "Насичений Urban Vibe зі смаком журавлини та <br class='d-none d-lg-block'/>X-Freeze зі смаком вибухового ментолу",
+          "list_text_3_html": "18 нікотинових паучів у банці"
+        },
+        "strong": "Міцність",
+        "format": "ФОРМАТ ПАУЧІВ"
+      }
+    }
+  }
+}
+{% endschema %}

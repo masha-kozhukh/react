@@ -1,0 +1,49 @@
+<section class="index-advantages" >
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-11  col-12 ">
+                <h2 class="title text-uppercase mb-4 text-right">
+                    {% if shop.locale == 'uk' %}
+                        ВІДКРИЙ ДЛЯ СЕБЕ <br>
+                        ВСІ ПЕРЕВАГИ <span>VELO</span>
+                    {% else %}
+                        ОТКРЫЙ ДЛЯ СЕБЯ <br>
+                        ВСЕ ПРЕИМУЩЕСТВА <span>VELO</span>
+                    {% endif %}
+                </h2>
+                <div>
+                    <div class="d-flex flex-wrap align-items-center  ">
+                        <picture class="advantages-card">
+                            <img src="{{ 'advantages-card.svg' | asset_url }}" alt="">
+                        </picture>
+                        <picture class="advantages-card">
+                            <img src="{{ 'advantages-card-1.svg' | asset_url }}" alt="">
+                        </picture>
+                        <picture class="advantages-card">
+                            <img src="{{ 'advantages-card-2.svg' | asset_url }}" alt="">
+                        </picture>
+                        <picture class="advantages-card">
+                            <img src="{{ 'advantages-card-4.svg' | asset_url }}" alt="">
+                        </picture>
+                        <picture class="advantages-card">
+                            <img src="{{ 'advantages-card-5.svg' | asset_url }}" alt="">
+                        </picture>
+                        <picture class="advantages-card">
+                            <img src="{{ 'advantages-card-3.svg' | asset_url }}" alt="">
+                        </picture>
+
+                    </div>
+                </div>
+                <p class="small">
+                    {% if shop.locale == 'uk' %}
+                        ** Цей продукт не виключає всі ризики та містить нікотин, що викликає залежність.
+                    {% else %}
+                        ** Этот продукт не исключает всех рисков и содержит никотин, вызывающий зависимость.
+                    {% endif %}
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>

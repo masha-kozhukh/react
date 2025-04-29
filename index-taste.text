@@ -1,0 +1,123 @@
+<section class="index-taste 1">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-sm-12 col-lg-4">
+                    <h2 class="title d-flex flex-lg-column"><span class="pl-0">VELO</span> на ходу</h2>
+
+                    <div class="index-taste__descr">
+                        <p>{{ 'home_taste.hero_description' | t }}</p>
+                        <p>
+                            {{ 'home_taste.hero_description_open' | t }}
+                            {{ 'home_taste.hero_description_link' | t }}
+                        </p>
+
+                        <small>{{ 'products.products_disqlaimer' | t }}</small>
+                    </div>
+                </div>
+                <div class="index-taste-slider">
+
+                        <div class="swiper-container taste-slider__slider js-index-taste-slider">
+                            <div class="swiper-wrapper">
+
+                                {% for product in collections.all.products %}
+                                    {% assign productTags = product.tags | join: ', ' %}
+                                    {% case product.metafields.product-text-items.strenght %}
+                                        {% when 'easy' %}
+                                            {%- assign sort_meta = 'order-1' -%}
+                                        {% when 'medium' %}
+                                            {%- assign sort_meta = 'order-2' -%}
+                                        {% when 'strong' %}
+                                            {%- assign sort_meta = 'order-3' -%}
+                                        {% when 'x-strong' %}
+                                            {%- assign sort_meta = 'order-4' -%}
+                                        {% when 'maximum' %}
+                                            {%- assign sort_meta = 'order-5' -%}
+                                        {% when 'ultra' %}
+                                            {%- assign sort_meta = 'order-6' -%}
+                                        {% else %}
+                                            {%- assign sort_meta = 'order-last' -%}
+                                    {% endcase %}
+                                    {% if productTags contains 'index-page' %}
+                                        <div class="swiper-slide taste-slider__cardlll {{ sort_meta }}" data-id="{{ product.selected_or_first_available_variant.sku }}">
+                                            <picture class="taste-slider__img">
+                                                <a href="{{ product.url }}">
+                                                    <span class="p-img-disqlaimer">*</span>
+                                                    <img class="lazyload" data-src="{{ product | img_url: '300x300', scale: 2 }}" alt="{{ product.featured_image.alt }}" width="100%" height="100%">
+                                                </a>
+                                            </picture>
+
+                                            <a href="{{ product.url }}" class="taste-slider__name">{{ product.title }}</a>
+
+                                            <div class="taste-slider__description">
+
+
+                                                <span class="taste-slider__price">
+                  {% include 'product-price-collection', variant: product.selected_or_first_available_variant %}
+                </span>
+                                            </div>
+
+                                            <a href="{{ product.url }}" class="btn btn-index taste-slider__buy-btn">{{ 'products.product.text_order' | t }}</a>
+                                        </div>
+                                        <script>
+                                            window.GTMcollection.products.push({
+                                                name: {{ product.title | json }},         // Name or ID is required.
+                                                id: {{ product.selected_or_first_available_variant.sku  | json }},
+                                                price: {{ product.selected_or_first_available_variant.price  | divided_by: 100.00 | json }},
+                                                brand: {{ product.vendor | json }},
+                                                category: {% if shop.locale == 'uk' %}'VELO на ходу'{% else %}'VELO на ходу RU'{% endif %},
+                                                variant: {{ product.selected_or_first_available_variant.title  | json }},
+                                                list: 'Index'
+                                            });
+                                        </script>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <script>window.GTMcollection.preImpressions()</script>
+
+                        </div>
+                        <div class="swiper-button-next index-btn-next"></div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+</section>
+
+<script>window.GTMcollection.impressions()</script>
+
+{% schema %}
+{
+  "locales": {
+    "en": {
+      "home_taste": {
+        "hero_description": "Ти можеш використовувати VELO будь-де та будь-коли, у вагоні метро чи навіть в салоні літака.",
+        "hero_description_open": "Відкрий для себе",
+        "hero_description_link": "всю лінійку смаків VELO"
+      }
+    },
+    "ru": {
+      "home_taste": {
+        "hero_description": "Ты можешь использовать VELO где угодно и когда угодно, в вагоне метро или даже в салоне самолета.",
+        "hero_description_open": "Открой для себя",
+        "hero_description_link": "всю линейку вкусов VELO"
+      }
+    },
+    "uk": {
+      "home_taste": {
+        "hero_description": "Ти можеш використовувати VELO будь-де та будь-коли, у вагоні метро чи навіть в салоні літака.",
+        "hero_description_open": "Відкрий для себе",
+        "hero_description_link": "всю лінійку смаків VELO"
+      }
+    }
+  }
+}
+{% endschema %}
+
+<style>
+
+</style>

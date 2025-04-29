@@ -1,0 +1,137 @@
+<section class="index-ask" style="background: white">
+
+    <div class="container">
+        <h2 class="title text-right text-uppercase mb-5">
+            {% if shop.locale == 'uk' %}
+                що нового?
+            {% else %}
+                что нового?
+            {% endif %}
+        </h2>
+    </div>
+
+    <div class="container-xl  container-lg index-glo-slider-container">
+        <div class="swiper-container js-blog-slide">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="d-flex flex-column index-slider-content" style="background: transparent">
+                        <picture class="advantages-card">
+                            <img src="{{ 'glo-blog-slide-1.png' | asset_url }}" alt="">
+                        </picture>
+                        <a class="glo-contact index-blog-text">
+                            {% if shop.locale == 'uk' %}
+                                Які паучі обрати <br> для першого знайомства?
+                            {% else %}
+                                Какие паучи выбрать <br> для первого знакомства?
+                            {% endif %}
+                        </a>
+                        <p class=" index-blog-data"> 27/01/2022</p>
+                    </div>
+
+
+                </div>
+                <div class="swiper-slide">
+                    <div class="d-flex flex-column index-slider-content" style="background: transparent">
+                        <picture class="advantages-card">
+                            <img src="{{ 'glo-blog-slide-2.png' | asset_url }}" alt="">
+                        </picture>
+                        <a class="glo-contact index-blog-text">
+                            {% if shop.locale == 'uk' %}
+                                Правила користування <br> <span class="text-uppercase">VELO</span>
+                            {% else %}
+                                Правила пользования <br> <span class="text-uppercase">VELO</span>
+                            {% endif %}
+                        </a>
+                        <p class=" index-blog-data"> 27/01/2022</p>
+                    </div>
+
+                </div>
+                <div class="swiper-slide">
+                    <div class="d-flex flex-column index-slider-content" style="background: transparent">
+                        <picture class="advantages-card">
+                            <img src="{{ 'glo-blog-slide-3.png' | asset_url }}" alt="">
+                        </picture>
+                        <a class="glo-contact index-blog-text">
+                            {% if shop.locale == 'uk' %}
+                                Чим  <span class="text-uppercase">VELO</span> відрізняється <br> від снюсу та сигарет?
+                            {% else %}
+                                Чем <span class="text-uppercase">VELO</span> отличается от снюса и сигарет?
+                            {% endif %}
+                        </a>
+                        <p class=" index-blog-data"> 27/01/2022</p>
+                    </div>
+
+                </div>
+                <div class="swiper-slide">
+                    <div class="d-flex flex-column index-slider-content" style="background: transparent">
+                        <picture class="advantages-card">
+                            <img src="{{ 'glo-blog-slide-1.png' | asset_url }}" alt="">
+                        </picture>
+                        <a class="glo-contact index-blog-text">
+                            {% if shop.locale == 'uk' %}
+                                Які паучі обрати <br> для першого знайомства?
+                            {% else %}
+                                Какие паучи выбрать <br> для первого знакомства?
+                            {% endif %}
+                        </a>
+                        <p class=" index-blog-data"> 27/01/2022</p>
+                    </div>
+
+
+                </div>
+                <div class="swiper-slide">
+                    <div class="d-flex flex-column index-slider-content" style="background: transparent">
+                        <picture class="advantages-card">
+                            <img src="{{ 'glo-blog-slide-2.png' | asset_url }}" alt="">
+                        </picture>
+                        <a class="glo-contact index-blog-text">
+                            {% if shop.locale == 'uk' %}
+                                Правила користування <br> <span class="text-uppercase">VELO</span>
+                            {% else %}
+                                Правила пользования <br> <span class="text-uppercase">VELO</span>
+                            {% endif %}
+                        </a>
+                        <p class=" index-blog-data"> 27/01/2022</p>
+                    </div>
+
+                </div>
+                <div class="swiper-slide">
+                    <div class="d-flex flex-column index-slider-content" style="background: transparent">
+                        <picture class="advantages-card">
+                            <img src="{{ 'glo-blog-slide-3.png' | asset_url }}" alt="">
+                        </picture>
+                        <a class="glo-contact index-blog-text">
+                            {% if shop.locale == 'uk' %}
+                                Чим  <span class="text-uppercase">VELO</span> відрізняється <br> від снюсу та сигарет?
+                            {% else %}
+                                Чем <span class="text-uppercase">VELO</span> отличается от снюса и сигарет?
+                            {% endif %}
+                        </a>
+                        <p class=" index-blog-data"> 27/01/2022</p>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="index-slide-button index-slide-button-next swiper-button-next "></div>
+        <div class="index-slide-button index-slide-button-prev swiper-button-prev"></div>
+
+
+    </div>
+</section>
+
+<style>
+    .index-slide-button{
+        background: #BCBEC0;
+         opacity: 0.4;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        font-size: 80px;
+         color: #9f8585;
+    }
+
+</style>

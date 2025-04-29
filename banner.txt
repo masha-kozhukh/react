@@ -1,0 +1,94 @@
+{% section 'index-slider' %}
+{% section 'index-experience' %}
+{% section 'index-advantages' %}
+{% section 'index-component' %}
+{% section 'index-use-glo' %}
+{% section 'index-choose' %}
+{% section 'index-blog' %}
+{% section 'index-taste' %}
+{% section 'homepage-map' %}
+
+
+<div class="swiper-container js-index-banner-slider">
+        <div class="swiper-wrapper" style="background: #FFFFFF">
+                {% include 's-velo-photo' %}
+                {% include 's-velo-photo-1' %}
+
+        </div>
+        <div class="index-slide-button swiper-button-next "></div>
+        <div class="index-slide-button  swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+</div>
+<style>
+
+    @media only screen and (max-width: 1023px){
+        .index-slide-button{
+            display: none;
+        }
+    }
+
+
+</style>
+
+
+<div class="swiper-slide ">
+    <picture>
+
+        <img class="slider-lg" src="{{ 'index-slider-lg.png' | asset_url }}" alt="">
+        <img class="slider-sm" src="{{ 'index-slider-sm.png' | asset_url }}" alt="">
+    </picture>
+
+</div>
+
+
+<div class="swiper-slide ">
+    <picture>
+        <img class="slider-lg" src="{{ 'index-slider-1-lg.png' | asset_url }}" alt="">
+        <img class="slider-sm" src="{{ 'index-slider-1-sm.png' | asset_url }}" alt="">
+    </picture>
+
+</div>
+<div class="swiper-slide slider-sm">
+    <picture>
+        <img  src="{{ 'index-slider-2-sm.png' | asset_url }}" alt="">
+    </picture>
+
+</div>
+<div class="swiper-slide slider-sm">
+    <picture>
+        <img src="{{ 'index-slider-3-sm.png' | asset_url }}" alt="">
+    </picture>
+
+</div>
+<div class="swiper-slide slider-sm">
+    <picture>
+        <img src="{{ 'index-slider-4-sm.png' | asset_url }}" alt="">
+    </picture>
+
+</div>
+
+
+
+_indexSlider: function() {
+      const indexSlider = new Swiper('.js-index-banner-slider', {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        loop: true,
+        effect: 'fade',
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+
+        slidesPerView: 1,
+
+
+
+      });
+
+
+      indexSlider.init();
+    },
+

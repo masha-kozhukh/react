@@ -11,6 +11,15 @@ import { Artist } from "./icons/Artist";
 import { Accordion } from "./components/Accordion";
 import { ToDoList, ListsProps } from "./components/ToDoList";
 import { accordions } from "./constants/accordions";
+import { BreedList, BreedsProps } from "./components/BreedList";
+
+const breeds: BreedsProps = {
+  title: "🐶 Список порід собак",
+  placeholder: "Пошук породи...",
+  buttonNameSortedReverse: "filter by sort reverse",
+  buttonNameSorted: "filter by sort",
+  buttonNameReset:"Reset",
+};
 
 const lists: ListsProps = {
   initialItems: [
@@ -114,6 +123,7 @@ function App() {
       {/*    title={services.title}*/}
       {/*/> */}
       <ToDoList {...lists} />
+      <BreedList {...breeds} />
       <Accordion {...accordions} />
       <Services {...services} />
       <Button onClick={onShowInformationClick} name="hide" />
