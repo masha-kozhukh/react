@@ -14,3 +14,11 @@ export const sortBreedsReverse = (breeds: string[]): string[] => {
 export const sortBreeds = (breeds: string[]): string[] => {
   return [...breeds].sort();
 };
+
+export const isDisabled = (
+  breeds: string[],
+  filter: string[],
+  searchTerm: string
+): boolean => {
+  return filter.length === breeds.length && searchTerm === "";
+};

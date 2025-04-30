@@ -3,6 +3,7 @@ import { Input } from "./Input";
 import { Button } from "./Button";
 import {
   filterBreeds,
+  isDisabled,
   sortBreeds,
   sortBreedsReverse,
 } from "../utils/breedUtils";
@@ -70,7 +71,11 @@ export const BreedList = React.memo((props: BreedsProps) => {
         onClick={onHandleButtonSortedReverse}
         name={buttonNameSortedReverse}
       />
-      <Button onClick={onHandleButtonReset} name={buttonNameReset} />
+      <Button
+        onClick={onHandleButtonReset}
+        name={buttonNameReset}
+        disabled={isDisabled(breeds, filter, searchTerm)}
+      />
 
       <Input
         value={searchTerm}
