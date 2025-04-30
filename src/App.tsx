@@ -15,6 +15,7 @@ import { BreedList, BreedsProps } from "./components/BreedList";
 
 const breeds: BreedsProps = {
   title: "🐶 Список порід собак",
+  liDontFind:"Нічого не знайдено",
   placeholder: "Пошук породи...",
   buttonNameSortedReverse: "filter by sort reverse",
   buttonNameSorted: "filter by sort",

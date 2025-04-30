@@ -17,7 +17,7 @@ export const Option = React.memo((props: OptionsProps) => {
     className = "option",
   } = props;
   return (
-    <option value={value} className={className}>
+    <option value={value} disabled={disabled} className={className}>
       {label}
     </option>
   );

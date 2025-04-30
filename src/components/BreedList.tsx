@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Option } from "./Option";
 import { Input } from "./Input";
 import { Button } from "./Button";
 import {
@@ -14,11 +13,13 @@ export type BreedsProps = {
   buttonNameSortedReverse: string;
   buttonNameSorted: string;
   buttonNameReset: string;
+  liDontFind: string;
 };
 
 export const BreedList = React.memo((props: BreedsProps) => {
   const {
     title,
+    liDontFind,
     placeholder,
     buttonNameSortedReverse,
     buttonNameSorted,
@@ -78,15 +79,12 @@ export const BreedList = React.memo((props: BreedsProps) => {
       />
 
       <ul className="list-disc pl-5 space-y-1">
-        {filter.map((breed) => (
-          <li key={breed}>{breed}</li>
-        ))}
+        {filter.length > 0 ? (
+          filter.map((breed) => <li key={breed}>{breed}</li>)
+        ) : (
+          <li className="text-gray">{liDontFind}</li>
+        )}
       </ul>
-      {/* <select className="select w-full mb-4">
-        {filteredBreeds.map((breed) => (
-          <Option key={breed} value={breed} label={breed} />
-        ))}
-      </select> */}
     </div>
   );
 });
