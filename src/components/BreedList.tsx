@@ -43,24 +43,27 @@ export const BreedList = React.memo((props: BreedsProps) => {
       });
   }, []);
 
-  const handleInputFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setSearchTerm(value);
-    setFilter(filterBreeds(breeds, value));
-  };
+  const handleInputFilter = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value;
+      setSearchTerm(value);
+      setFilter(filterBreeds(breeds, value));
+    },
+    [breeds]
+  );
 
-  const onHandleButtonSortedReverse = () => {
-    setFilter(sortBreedsReverse(filter));
-  };
+  const onHandleButtonSortedReverse = React.useCallback(() => {
+    setFilter((prevFilter) => sortBreedsReverse(prevFilter));
+  }, []);
 
-  const onHandleButtonSorted = () => {
-    setFilter(sortBreeds(filter));
-  };
+  const onHandleButtonSorted = React.useCallback(() => {
+    setFilter((prevFilter) => sortBreeds(prevFilter));
+  }, []);
 
-  const onHandleButtonReset = () => {
+  const onHandleButtonReset = React.useCallback(() => {
     setFilter(breeds);
     setSearchTerm("");
-  };
+  }, [breeds]);
 
   return (
     <div className="p-4">
@@ -83,7 +86,7 @@ export const BreedList = React.memo((props: BreedsProps) => {
         onChange={handleInputFilter}
       />
 
-      <ul className="list-disc pl-5 space-y-1">
+      <ul className="list-breeds pl-5 space-y-1">
         {filter.length > 0 ? (
           filter.map((breed) => <li key={breed}>{breed}</li>)
         ) : (
