@@ -3,7 +3,7 @@ import React from "react";
 export type OptionsProps = {
   className?: string;
   value?: string;
-  label?: string;
+  label: string;
   select?: boolean;
   disabled?: boolean;
 };

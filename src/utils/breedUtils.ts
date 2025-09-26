@@ -3,7 +3,7 @@ export const filterBreeds = (
   searchTerm: string
 ): string[] => {
   return breeds.filter((breed) =>
-    breed.toLocaleLowerCase().startsWith(searchTerm.toLocaleLowerCase())
+    breed.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
   );
 };
 
