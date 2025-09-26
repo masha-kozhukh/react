@@ -1,0 +1,265 @@
+
+<div class="index-use">
+
+    <picture class="advantages-picture">
+        <img src="{{ 'advantages-picture.svg' | asset_url }}" alt="">
+    </picture>
+    <picture class="advantages-picture-sm">
+        <img src="{{ 'advantages-picture-sm.svg' | asset_url }}" alt="">
+    </picture>
+    <section class="index-glo">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="title text-right text-uppercase mb-4">
+                        {% if shop.locale == 'uk' %}
+                            ШВИДКИЙ ГАЙД,<br> ЯК ЮЗАТИ  <span class="d-inline" >VELO</span>
+                        {% else %}
+                            БЫСТРЫЙ ГАЙД,<br> КАК ЮЗАТЫ <span class="d-inline" >VELO</span>
+                        {% endif %}
+                    </h2>
+                    <div class="glo-items">
+                        <div class="glo-item glo-item-show  d-flex flex-column align-items-center text-center">
+                            <picture class="mb-2">
+                                <img src="{{ 'glo-card.png' | asset_url }}" alt="">
+                            </picture>
+                            <h4 class="mb-3 glo-item-title ">{% if shop.locale == 'uk' %}
+                                    Відкрий <br>
+                                    банку
+                                {% else %}
+                                    Открой <br>
+                                    банка
+                                {% endif %}
+                            </h4>
+                            <p class="mb-4 glo-contact ">{% if shop.locale == 'uk' %}
+                                    Прокрути кришку, тримаючи банку знизу, щоб розірвати стрічку. Натисни на банку з двох боків і потягни кришку догори. Готово! Не так складно, як здавалося.
+                                {% else %}
+                                    Прокрутите крышку, держа банку снизу, чтобы разорвать ленту. Нажми на банку с двух сторон и потяни крышку вверх. Готово! Не так сложно, как казалось.
+                                {% endif %}
+                            </p>
+                            <picture class="advantages-card">
+                                <img src="{{ 'glo-item.png' | asset_url }}" alt="">
+                            </picture>
+                        </div>
+                        <div class="glo-item glo-item-show  d-flex flex-column align-items-center text-center">
+                            <picture class="mb-2">
+                                <img src="{{ 'glo-card-2.png' | asset_url }}" alt="">
+                            </picture>
+                            <h4 class="mb-3">{% if shop.locale == 'uk' %}
+                                    Розташуй пауч <br>між верхньою губою та яснами <br>збоку
+                                {% else %}
+                                    Расположи пауч между верхней губой и десной на боку
+                                {% endif %}
+                            </h4>
+                            <p class="mb-4 glo-contact ">{% if shop.locale == 'uk' %}
+                                    Так, спершу може здатися, що цей ритуал незвичний і всі навколо дивляться на тебе. Тому для першого знайомства з VELO обирай MINI-паучі– вони найменші і найзручніші.
+                                    А взагалі пауч майже непомітний, якщо розмістити його між верхньою губою та яснами. 100% – даю слово!
+                                {% else %}
+                                    Да, сначала может показаться, что этот ритуал необычен и все вокруг смотрят на тебя. Поэтому для первого знакомства с VELO выбирай MINI-паучи – они самые маленькие и удобные.
+                                    А вообще пауч почти незаметен, если разместить его между верхней губой и десной. 100% – даю слово!
+                                {% endif %}
+                            </p>
+                            <picture class="advantages-card">
+                                <img src="{{ 'glo-item.png' | asset_url }}" alt="">
+                            </picture>
+                        </div>
+                        <div class="glo-item glo-item-show  d-flex flex-column align-items-center text-center">
+                            <picture class="mb-2">
+                                <img src="{{ 'glo-card-3.png' | asset_url }}" alt="">
+                            </picture>
+                            <h4 class="mb-3">{% if shop.locale == 'uk' %}
+                                    Поколювання <br> означає, що <br>нікотин почав <br>діяти
+                                {% else %}
+                                    Покалывание означает, что никотин начал действовать
+                                {% endif %}
+                            </h4>
+                            <p class="mb-4 glo-contact ">{% if shop.locale == 'uk' %}
+                                    Не хвилюйся. Поколювання значною мірою зменшується при подальшому використанні продукту. Дай собі час звикнути.
+                                {% else %}
+                                    Не волнуйся. Покалывание в значительной степени уменьшается при дальнейшем использовании продукта. Дай себе пора привыкнуть.
+                                {% endif %}
+                            </p>
+                            <picture class="advantages-card">
+                                <img src="{{ 'glo-item.png' | asset_url }}" alt="">
+                            </picture>
+                        </div>
+                        <div class="glo-item glo-item-show  d-flex flex-column align-items-center text-center">
+                            <picture class="mb-2">
+                                <img src="{{ 'glo-card-4.png' | asset_url }}" alt="">
+                            </picture>
+                            <h4 class="mb-3">{% if shop.locale == 'uk' %}
+                                    Використовуй <br>VELO до
+                                    30 хвилин
+                                {% else %}
+                                    Використовуй <br>VELO до
+                                    30 хвилин
+                                {% endif %}
+                            </h4>
+                            <p class="mb-4 glo-contact ">{% if shop.locale == 'uk' %}
+                                    Використовуй лише один пауч за раз. Якщо кортить більшого насичення, спробуй інший рівень міцності.
+                                    Не використовуй пауч повторно.
+                                {% else %}
+                                    Используй только один пауч за раз. Если хочется большего насыщения, попробуй другой уровень прочности.
+                                    Не используй пауч повторно.
+                                {% endif %}
+                            </p>
+                            <picture class="advantages-card">
+                                <img src="{{ 'glo-item.png' | asset_url }}" alt="">
+                            </picture>
+                        </div>
+                        <div class="glo-item glo-item-show  d-flex flex-column align-items-center text-center">
+                            <picture class="mb-2">
+                                <img src="{{ 'glo-card-5.png' | asset_url }}" alt="">
+                            </picture>
+                            <h4 class="mb-3">{% if shop.locale == 'uk' %}
+                                    Помісти пауч <br>у спеціальний <br>відсік у банці
+                                {% else %}
+                                    Помести пауч <br>в специальный <br>отсек в банке
+                                {% endif %}
+                            </h4>
+                            <p class="mb-4 glo-contact ">{% if shop.locale == 'uk' %}
+                                    Не знаєш, куди подіти використаний пауч? Все просто та продумано. Кожна банка VELO має зручний відсік, де можна і навіть потрібно зберігати використані
+                                    паучі.
+                                {% else %}
+                                    Не знаешь, куда девать использованный пауч? Все просто и продуманно. Каждая банка VELO имеет удобный отсек, где можно и даже нужно хранить
+                                    паучи.
+                                {% endif %}
+                            </p>
+                            <picture class="advantages-card">
+                                <img src="{{ 'glo-item.png' | asset_url }}" alt="">
+                            </picture>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="index-ask">
+
+        <div class="container">
+            <h2 class="title text-uppercase mb-5">
+                {% if shop.locale == 'uk' %}
+                    Нас часто запитують
+                {% else %}
+                    Нас часто спрашивают
+                {% endif %}
+            </h2>
+        </div>
+
+        <div class="container-xl  container-lg index-glo-slider-container">
+            <div class="swiper-container js-index-slide">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="d-flex flex-column index-slider-content">
+                            <picture class="advantages-card">
+                                <img src="{{ 'glo-index-slide-1.png' | asset_url }}" alt="">
+                            </picture>
+                            <p class="glo-contact index-slide-text">
+                                {% if shop.locale == 'uk' %}
+                                    Які паучі обрати <br> для першого знайомства?
+                                {% else %}
+                                    Какие паучи выбрать <br> для первого знакомства?
+                                {% endif %}
+                            </p>
+                        </div>
+
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="d-flex flex-column index-slider-content">
+                            <picture class="advantages-card">
+                                <img src="{{ 'glo-index-slide-2.png' | asset_url }}" alt="">
+                            </picture>
+                            <p class="index-slide-text ">{% if shop.locale == 'uk' %}
+                                    Правила користування <br> <span class="text-uppercase">VELO</span>
+                                {% else %}
+                                    Правила использования <span class="text-uppercase">VELO</span>
+                                {% endif %}
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="d-flex flex-column index-slider-content">
+                            <picture class="advantages-card">
+                                <img src="{{ 'glo-index-slide-3.png' | asset_url }}" alt="">
+                            </picture>
+                            <p class="index-slide-text">{% if shop.locale == 'uk' %}
+                                    Чим  <span class="text-uppercase">VELO</span> відрізняється <br> від снюсу та сигарет?
+
+                                {% else %}
+                                    Чем <span class="text-uppercase">VELO</span> отличается от снюса и сигарет?
+                                {% endif %}
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="d-flex flex-column index-slider-content">
+                            <picture class="advantages-card">
+                                <img src="{{ 'glo-index-slide-1.png' | asset_url }}" alt="">
+                            </picture>
+                            <p class="glo-contact index-slide-text">
+                                {% if shop.locale == 'uk' %}
+                                    Які паучі обрати <br> для першого знайомства?
+                                {% else %}
+                                    Какие паучи выбрать <br> для первого знакомства?
+                                {% endif %}
+                            </p>
+                        </div>
+
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="d-flex flex-column index-slider-content">
+                            <picture class="advantages-card">
+                                <img src="{{ 'glo-index-slide-2.png' | asset_url }}" alt="">
+                            </picture>
+                            <p class="index-slide-text ">{% if shop.locale == 'uk' %}
+                                    Правила користування <br> <span class="text-uppercase">VELO</span>
+                                {% else %}
+                                    Правила использования <span class="text-uppercase">VELO</span>
+                                {% endif %}
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="d-flex flex-column index-slider-content">
+                            <picture class="advantages-card">
+                                <img src="{{ 'glo-index-slide-3.png' | asset_url }}" alt="">
+                            </picture>
+                            <p class="index-slide-text">{% if shop.locale == 'uk' %}
+                                    Чим  <span class="text-uppercase">VELO</span> відрізняється <br> від снюсу та сигарет?
+
+                                {% else %}
+                                    Чем <span class="text-uppercase">VELO</span> отличается от снюса и сигарет?
+                                {% endif %}
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="index-slide-button index-slide-button-next swiper-button-next "></div>
+            <div class="index-slide-button index-slide-button-prev swiper-button-prev"></div>
+
+
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+

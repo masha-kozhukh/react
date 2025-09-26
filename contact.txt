@@ -1,0 +1,158 @@
+<script src="{{ 'blocks.js?enable_js_minification=1' | asset_url | split: '?' | first}}"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    (function ($) {
+      $('.phone').inputmask('+38(999)-999-99-99', {'placeholder': '+38(___)-___-__-__'});
+    })(jQuery);
+  });
+</script>
+
+<script>
+  var StoreFinderConf = {
+    url: {
+      {% if blog.handle == 'recycling' %}
+        outletData: 'https://{{ settings.bride_domain }}/store-finder/outlet.json/{{has_recycle}}',
+      {%- else -%}
+        outletData: 'https://{{ settings.bride_domain }}/store-finder/outlet.json',
+      {%- endif -%}
+      currentMarker: "{{ 'point.png' | asset_url }}"
+    },
+    mapKey: 'AIzaSyBIToibsre0LnCpLoNFDOkW2ixnT4R-Jlk',
+    clusterIcons: {
+      {% if blog.handle == 'recycling' %}
+      m1: '{{ "m-recycling1.png" | asset_url }}',
+      m2: '{{ "m-recycling2.png" | asset_url }}',
+      m3: '{{ "m-recycling3.png" | asset_url }}',
+      m4: '{{ "m-recycling4.png" | asset_url }}',
+      m5: '{{ "m-recycling5.png" | asset_url }}',
+      {%- else -%}
+      m1: '{{ "cluster-m1.png" | asset_url }}',
+      m2: '{{ "cluster-m2.png" | asset_url }}',
+      m3: '{{ "cluster-m3.png" | asset_url }}',
+      m4: '{{ "cluster-m4.png" | asset_url }}',
+      m5: '{{ "cluster-m5.png" | asset_url }}'
+      {%- endif -%}
+    }
+  }
+</script>
+{% comment %}<script type="xhtml/template" id="markerPopupTmpl">
+  <div class="popup-template">
+    <div class="popup-template__address">
+      @address
+    </div>
+    <div class="popup-template__name">@name</div>
+    <div class="popup-template__point-type">
+      @type
+    </div>
+    <div class="route">
+      <a class="a-secondary text-uppercase"
+         href="https://www.google.com/maps/dir/?api=1&destination=@lat,@lng&travelmode=driving" target="_blank"
+         title="Прокласти сюди марштур на Google Картах">маршрут</a>
+    </div>
+  </div>
+</script>{% endcomment %}
+
+<script type="xhtml/template" id="markerPopupTmpl">
+  <div class="map-popup">
+    <div>
+      <div class="swiper-container map-popup-slider ">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <picture>
+              <img  class="lazyload" src="{{ 'popup-map-slide.png' | asset_img_url: 'master', format: 'pjpg' }}" alt="banner_powerbank_mob">
+            </picture>
+          </div>
+          <div class="swiper-slide">
+            <picture>
+              <img  class="lazyload" src="{{ 'popup-map-slide.png' | asset_img_url: 'master', format: 'pjpg' }}" alt="banner_powerbank_mob">
+            </picture>
+          </div>
+        </div>
+        <div class="swiper-button-next map-button-next "></div>
+        <div class="swiper-button-prev map-button-prev"></div>
+      </div>
+    </div>
+    <div class="popup-template">
+
+      <div class="popup-template__name">@name</div>
+      <div class="popup-template__address">
+        @address
+      </div>
+
+      <div class="mb-2">
+        <p class="mb-2">пн-пт: 09:00-19:00</p>
+        <p class="mb-0">сб-нд: 09:00-20:00</p>
+      </div>
+      <div class="mb-2">
+        <a>+38 050 471 19 45</a>
+      </div>
+      <div class="d-flex flex-wrap align-items-center map-tags">
+        <div class="map-tag glo-space">
+          glo studio
+        </div>
+        <div class="map-tag glo-clean">
+          чистка
+        </div>
+        <div class="map-tag engraving">
+          гравіювання
+        </div>
+        <div class="map-tag autonomy">
+          автономність
+        </div>
+        <div class="map-tag pop-up">
+          glo pop up💡
+        </div>
+        <div class="map-tag drinks " >
+          напої
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</script>
+
+<script type="xhtml/template" id="listRowTmpl">
+  <div class="custom_row_container">
+
+    <div class="custom_row">
+      <div class="icon">
+        <img src="@icon" alt="">
+      </div>
+      <div class="place_block">
+        <div class="place_name">@address</div>
+        <span class="place_description d-none">@title</span>
+        <div class="place_tags">
+          @products
+        </div>
+      </div>
+      <div class="schedule_block">
+        @description
+      </div>
+      <div class="show_on_map">
+        <button class="show_on_map_button"
+                data-id="marker_lnk">{% if shop.locale == 'ru' %}Показать на карте{% else %}Показати на карті{% endif %}</button>
+      </div>
+    </div>
+
+  </div>
+</script>
+
+<script type="xhtml/template" id="prodTmpl">
+  <div class="place_tag">@product</div>
+</script>
+
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js" defer></script>
+<script src="{{ 'store_finder.js?enable_js_minification=1' | asset_url }}" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    (function() {
+      var script = document.createElement('script');
+      script.setAttribute('src', 'https://maps.googleapis.com/maps/api/js?key=' + StoreFinderConf.mapKey + '&libraries=places,geometry&callback=StoreFinder.onMapScriptLoad');
+      script.setAttribute('async', true);
+      document.body.appendChild(script);
+    })();
+  });
+</script>
+<script src="{{ 'multiple-select.min.js' | asset_url }}" defer></script>
