@@ -3,17 +3,17 @@ import { AccordionsProps } from "../components/Accordion";
 export const accordions: AccordionsProps = {
   contents: [
     {
-      name: "Design",
+      name: "1Design",
       text: "a plan or drawing produced to show the look and function",
       id: 0,
     },
     {
-      name: "Design",
+      name: "2Design",
       text: "a plan or drawing produced to show the look and function",
       id: 1,
     },
     {
-      name: "Design",
+      name: "3Design",
       text: "a plan or drawing produced to show the look and function",
       id: 2,
     },

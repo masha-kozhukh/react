@@ -12,14 +12,16 @@ import { Accordion } from "./components/Accordion";
 import { ToDoList, ListsProps } from "./components/ToDoList";
 import { accordions } from "./constants/accordions";
 import { BreedList, BreedsProps } from "./components/BreedList";
+import { Feedback, FeedbackProps } from "./components/Feedback";
+import { FeedbackPerson } from "./icons/FeedbackPerson";
 
 const breeds: BreedsProps = {
   title: "🐶 Список порід собак",
-  liDontFind:"Нічого не знайдено",
+  liDontFind: "Нічого не знайдено",
   placeholder: "Пошук породи...",
   buttonNameSortedReverse: "filter by sort reverse",
   buttonNameSorted: "filter by sort",
-  buttonNameReset:"Reset",
+  buttonNameReset: "Reset",
 };
 
 const lists: ListsProps = {
@@ -97,6 +99,33 @@ const information: InformationProps = {
   },
 };
 
+const feedback: FeedbackProps = {
+  blocks: [
+    {
+      subtitle:
+        "1Heartiest congratulations to the team for Future projects. I extend thankful wishes and wish the team best of luck for the future assignments to come. Your effort is gladly ",
+      title: "Jorge Morrison",
+      text: "North California,USA",
+      id: 0,
+      icon: <FeedbackPerson />,
+    },
+    {
+      subtitle:
+        "2Heartiest congratulations to the team for Future projects. I extend thankful wishes and wish the team best of luck for the future assignments to come. Your effort is gladly ",
+      title: "Jorge Morrison",
+      text: "North California,USA",
+      id: 2,
+      icon: <Artist />,
+    },
+  ],
+  title: "Feedback",
+  subtitle: "Thats What Ogfur Client Says About Us",
+  link: {
+    href: "#",
+    name: "feedback more",
+  },
+};
+
 const hooks = {
   useShowInformationButtonHandler() {
     const [showInformation, setShowInformation] = React.useState<boolean>(true);
@@ -123,9 +152,11 @@ function App() {
       {/*    subtitle={services.subtitle}*/}
       {/*    title={services.title}*/}
       {/*/> */}
+
       <ToDoList {...lists} />
       <BreedList {...breeds} />
       <Accordion {...accordions} />
+      <Feedback {...feedback} />
       <Services {...services} />
       <Button onClick={onShowInformationClick} name="hide" />
       {showInformation && <Information {...information} />}
